@@ -168,3 +168,32 @@
 @utility animation-delay-300 {
   animation-delay: 300ms;
 }
+
+@keyframes aurora-1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.08);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.96);
+  }
+}
+
+@keyframes aurora-2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(-40px, 40px) scale(1.12);
+  }
+}
+
+@utility animate-aurora-1 {
+  animation: aurora-1 18s ease-in-out infinite;
+}
+
+@utility animate-aurora-2 {
+  animation: aurora-2 22s ease-in-out infinite;
+}

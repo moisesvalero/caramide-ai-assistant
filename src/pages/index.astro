@@ -76,9 +76,9 @@ import '../styles/global.css';
         <section class="relative min-h-[819px] flex flex-col items-center justify-center pt-section-padding-desktop pb-section-padding-desktop px-gutter overflow-hidden hero-gradient">
             <div class="absolute inset-0 dot-pattern opacity-30 pointer-events-none"></div>
             <div class="relative z-10 max-w-[800px] w-full text-center flex flex-col items-center">
-                <span class="inline-block bg-secondary text-white px-3 py-1 font-label-caps text-label-caps mb-6">AI POWERED DERMATOLOGY</span>
-                <h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] text-primary mb-6">Tu experto en piel,<br/>potenciado por IA.</h1>
-                <p class="font-body-md text-on-surface-variant mb-8 max-w-[600px] mx-auto">Cuéntale a nuestra IA qué necesita tu piel y descubre tu rutina personalizada de Caramide al instante.</p>
+                <span class="inline-block bg-secondary text-white px-3 py-1 font-label-caps text-label-caps mb-6 opacity-0 animate-fade-in-up">AI POWERED DERMATOLOGY</span>
+                <h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] text-primary mb-6 opacity-0 animate-fade-in-up animation-delay-100 font-extrabold tracking-tight">Tu experto en piel,<br/>potenciado por IA.</h1>
+                <p class="font-body-md text-on-surface-variant mb-8 max-w-[600px] mx-auto opacity-0 animate-fade-in-up animation-delay-200">Cuéntale a nuestra IA qué necesita tu piel y descubre tu rutina personalizada de Caramide al instante.</p>
                 
                 <!-- Chat Window Container (Initially Hidden, expanded beautifully on first message) -->
                 <div id="chat-window" class="hidden w-full max-w-[700px] bg-white border border-primary text-left flex flex-col mb-4 transition-all duration-300">
@@ -110,25 +110,25 @@ import '../styles/global.css';
                 </div>
 
                 <!-- AI Composer Box -->
-                <div class="w-full max-w-[700px] bg-white border border-primary p-2 group transition-all duration-300">
+                <div class="w-full max-w-[700px] bg-white border border-primary p-2 group transition-all duration-300 opacity-0 animate-fade-in-up animation-delay-300">
                     <div class="flex flex-col md:flex-row items-center gap-2">
                         <div class="flex-1 w-full px-4 py-3 flex items-center gap-3">
                             <span class="material-symbols-outlined text-outline">auto_awesome</span>
                             <label for="chat-input" class="sr-only">Dime qué necesita tu piel</label>
                             <input id="chat-input" class="w-full bg-transparent border-none focus:outline-none focus:ring-0 focus-visible:outline-none outline-none text-body-md font-body-md text-on-surface placeholder:text-outline" placeholder="Dime qué necesita tu piel (ej. 'tengo piel grasa')..." type="text"/>
                         </div>
-                        <button id="chat-send" class="w-full md:w-auto bg-primary text-on-primary px-6 py-4 hover:bg-secondary transition-colors duration-300 flex items-center justify-center" aria-label="Enviar consulta">
+                        <button id="chat-send" class="w-full md:w-auto bg-primary text-on-primary px-6 py-4 hover:bg-secondary hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center" aria-label="Enviar consulta">
                             <span class="material-symbols-outlined">send</span>
                         </button>
                     </div>
                 </div>
 
                 <!-- Prompt Examples -->
-                <div class="mt-8 flex flex-wrap justify-center gap-3">
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Antiarrugas</button>
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Piel Grasa</button>
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Hidratación profunda</button>
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Manchas Solares</button>
+                <div class="mt-8 flex flex-wrap justify-center gap-3 opacity-0 animate-fade-in-up animation-delay-300">
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Antiarrugas</button>
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Piel Grasa</button>
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Hidratación profunda</button>
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Manchas Solares</button>
                 </div>
             </div>
             <!-- Background Aesthetic Element -->
@@ -146,7 +146,7 @@ import '../styles/global.css';
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
                 <!-- Product Card 1: Retibak -->
-                <div class="group border-b border-transparent hover:border-outline-variant transition-all pb-8">
+                <div class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8">
                     <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
                         <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_QRL8RGYsno3OkOHSDcEk5ojnGh0HyEa5pU8Xbc_KCtSEDwW9dkHoFea5tiPqiUGtykZUf9kDK9kc0rDZunkCt-sHYoC2m6fcdRnG_INF01Db9Nb8e59tlcuK_eyGx8CpUAkrMsVMqI_MY2VmuVCZfnO4Z5OFA1wzYvVy-dOUea4jDx731MbSw602vBJ9RXTz7MkVhRbctPFrgm7eOj3y_wgRX1-xv4NC_zNU_Lca54xvrbUfLIomHslz87ids2l-9tHgGhTwcyGy" alt="Retibak"/>
                         <span class="absolute top-4 left-4 bg-secondary text-white px-2 py-1 font-label-caps text-[10px]">EPIGENÉTICO</span>
@@ -155,11 +155,11 @@ import '../styles/global.css';
                         <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">CARAMIDE</h3>
                         <p class="font-headline-lg text-[20px] mb-2 leading-tight">Retibak – Sérum Epigenético 30ml</p>
                         <p class="font-body-md font-bold mb-6">59.95€</p>
-                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white transition-all">Añadir al Carrito</button>
+                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">Añadir al Carrito</button>
                     </div>
                 </div>
                 <!-- Product Card 2: Oxystem -->
-                <div class="group border-b border-transparent hover:border-outline-variant transition-all pb-8">
+                <div class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8">
                     <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
                         <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1hy4jx4sGXwUleZ_kV0nStXwyhp6WKY_7yZzxcppbBFPaxsJhOwr17MOHFuqZ3J7UzjrMPY2Y27dsnYhyQXh4yw20k60wxoImiVRTuUBo4Uww6m0XBe8pq99ityeX4ZfurzHaJN-VnxQUy4jOh_ouWmyjMQcVsHAIoJJrax05dhal0-aQAXqLy0YjKTGKPqRHhL419BCMIUj58M2DoZaGhda_qF-omxcRpJmZsE0QHy562EuB8r026p2bAC7vZw2CSi-dji0DGl8a" alt="Oxystem"/>
                     </div>
@@ -167,11 +167,11 @@ import '../styles/global.css';
                         <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">CARAMIDE</h3>
                         <p class="font-headline-lg text-[20px] mb-2 leading-tight">Oxystem – Sérum Celular 30ml</p>
                         <p class="font-body-md font-bold mb-6">34.94€</p>
-                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white transition-all">Añadir al Carrito</button>
+                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">Añadir al Carrito</button>
                     </div>
                 </div>
                 <!-- Product Card 3: Mistify -->
-                <div class="group border-b border-transparent hover:border-outline-variant transition-all pb-8">
+                <div class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8">
                     <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
                         <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZV5dhmiVikZP0F7_YLcHnNIq_vtxWD9HHjrWzDahKaSmJ5yv-dSKukkEEiQoq9rguvLXGQ1lE5mYRqigQg-fzCg4mNA74UzsVwX5igOvwpi3lkOZLYb3HD4JrKo7d7Gk6NU6C89PDfwrCYn3Bt1WoJp3GDiAYdPU0N1UCZ5CjUCStuNTIAX_cQ0y8RcJFnwqZ06m_kbTb1bnGCVRwbPkVWnBlpA1fSvgbWnb4vn7cpO2n2M47hBztD2AqRD__gny5jNGk4v65v0_R" alt="Mistify"/>
                         <span class="absolute top-4 left-4 bg-primary text-white px-2 py-1 font-label-caps text-[10px]">NEW</span>
@@ -180,7 +180,7 @@ import '../styles/global.css';
                         <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">CARAMIDE</h3>
                         <p class="font-headline-lg text-[20px] mb-2 leading-tight">Mistify – Bruma Equilibrante 50ml</p>
                         <p class="font-body-md font-bold mb-6">34.94€</p>
-                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white transition-all">Añadir al Carrito</button>
+                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">Añadir al Carrito</button>
                     </div>
                 </div>
             </div>
@@ -407,9 +407,9 @@ import '../styles/global.css';
 
         function appendMessage(sender, text) {
             const messageDiv = document.createElement('div');
-            messageDiv.className = 'flex gap-4 items-start';
 
             if (sender === 'user') {
+                messageDiv.className = 'flex gap-4 items-start animate-slide-in-left';
                 messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-primary bg-surface-container-low border border-outline-variant p-2 text-lg">person</span>
                     <div class="flex-1 bg-surface-container-low border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
@@ -418,6 +418,7 @@ import '../styles/global.css';
                     </div>
                 `;
             } else if (sender === 'assistant') {
+                messageDiv.className = 'flex gap-4 items-start animate-slide-in-right';
                 messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
                     <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
@@ -426,6 +427,7 @@ import '../styles/global.css';
                     </div>
                 `;
             } else if (sender === 'error') {
+                messageDiv.className = 'flex gap-4 items-start animate-fade-in';
                 messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-error bg-error-container p-2 text-lg">warning</span>
                     <div class="flex-1 bg-error-container border border-error p-4 text-error text-[15px] leading-relaxed">

@@ -1,8 +1,8 @@
-# Larimide AI Skincare Assistant 🧪✨
+# Caramide AI Skincare Assistant 🧪✨
 
-> A next-generation, interactive clinical beauty concierge tailored for **Larimide** (https://larimide.com/).
+> A next-generation, interactive clinical beauty concierge tailored for **Caramide** (https://caramide.com/).
 
-This project transforms a static "Clinical Minimalist" design landing page into an interactive, AI-powered assistant demo. The AI acts as a professional cosmetic dermatologist, recommending official **Larimide** skincare treatments based on the user's specific skin concerns (e.g., oily skin, wrinkles, hydration, dark spots).
+This project transforms a static "Clinical Minimalist" design landing page into an interactive, AI-powered assistant demo. The AI acts as a professional cosmetic dermatologist, recommending official skincare treatments based on the user's specific skin concerns (e.g., oily skin, wrinkles, hydration, dark spots).
 
 Built with **Astro v7**, **Tailwind CSS v4**, and **OpenAI SDK**, fully optimized and ready to deploy on **Vercel** as a Serverless API and static frontend.
 
@@ -11,7 +11,7 @@ Built with **Astro v7**, **Tailwind CSS v4**, and **OpenAI SDK**, fully optimize
 ## Key Features 🚀
 
 - **AI-Powered Diagnostics:** Interactive chatbot in the Hero section that analyzes skin concerns and recommends custom routines.
-- **Exclusive Knowledge Base:** The AI is strictly trained (via System Prompt) to recommend *only* official Larimide products (Tinellin, Retibak, Maxinadin, Oxystem, etc.).
+- **Exclusive Knowledge Base:** The AI is strictly trained (via System Prompt) to recommend *only* official Caramide products (Tinellin, Retibak, Maxinadin, Oxystem, etc.).
 - **Strict Brand Design:** Adheres pixel-to-pixel to the "Clinical Minimalist" guidelines: flat stacks, 1px high-contrast borders, custom color scheme (`#bc0100` secondary accent), and Manrope / IBM Plex Sans typography.
 - **Secure Architecture:** OpenAI API calls are executed on the server side (`src/pages/api/chat.ts`) to prevent exposing API keys in the browser.
 - **Vercel Adapter Integration:** Automatic compilation of API routes into Serverless Functions.
@@ -33,8 +33,8 @@ Built with **Astro v7**, **Tailwind CSS v4**, and **OpenAI SDK**, fully optimize
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/moisesvalero/larimide-ai-assistant.git
-   cd larimide-ai-assistant
+   git clone https://github.com/moisesvalero/caramide-ai-assistant.git
+   cd caramide-ai-assistant
    ```
 
 2. **Install dependencies:**
@@ -117,4 +117,4 @@ All E2E tests are configured to use stable network mocks, meaning they are fast,
 ## License 📄
 
 This project is open-source and available under the [MIT License](LICENSE).
-For demonstration purposes for Larimide.
+For demonstration purposes for Caramide.

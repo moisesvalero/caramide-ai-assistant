@@ -35,3 +35,4 @@ playwright/.cache/
 # original zip files
 *.zip
 *.zip:Zone.Identifier
+.vercel

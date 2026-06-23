@@ -1,12 +1,12 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Larimide AI Skincare Assistant - E2E Tests', () => {
+test.describe('Caramide AI Skincare Assistant - E2E Tests', () => {
 
   test('debe cargar la landing page con el diseño Clinical Minimalist', async ({ page }) => {
     await page.goto('/');
     
     // Validar título
-    await expect(page).toHaveTitle(/Larimide AI Skincare Assistant/);
+    await expect(page).toHaveTitle(/Caramide AI Skincare Assistant/);
 
     // Validar elementos del layout principal
     await expect(page.locator('#main-header')).toBeVisible();
@@ -14,7 +14,7 @@ test.describe('Larimide AI Skincare Assistant - E2E Tests', () => {
     await expect(page.locator('footer').first()).toBeVisible();
     
     // El logo físico debe cargarse correctamente
-    const logo = page.locator('img[alt="Larimide Logo"]');
+    const logo = page.locator('img[alt="Caramide Logo"]');
     await expect(logo).toBeVisible();
     
     // La ventana del chat debe estar oculta al inicio
@@ -55,7 +55,7 @@ test.describe('Larimide AI Skincare Assistant - E2E Tests', () => {
 
     // Comprobamos que en el contenedor de mensajes haya al menos un mensaje del usuario y uno del asistente
     const userMessage = page.locator('#chat-messages >> text="Tú:"');
-    const assistantMessage = page.locator('#chat-messages >> text="Larimide AI Assistant:"');
+    const assistantMessage = page.locator('#chat-messages >> text="Caramide AI Assistant:"');
     
     await expect(userMessage).toBeVisible();
     await expect(assistantMessage).toBeVisible();
@@ -74,7 +74,7 @@ test.describe('Larimide AI Skincare Assistant - E2E Tests', () => {
         status: 200,
         contentType: 'application/json',
         body: JSON.stringify({
-          reply: 'Como asesor de Larimide, solo puedo recomendar productos de nuestro catálogo oficial. Te sugiero probar nuestros tratamientos científicos.'
+          reply: 'Como asesor de Caramide, solo puedo recomendar productos de nuestro catálogo oficial. Te sugiero probar nuestros tratamientos científicos.'
         })
       });
     });
@@ -94,9 +94,9 @@ test.describe('Larimide AI Skincare Assistant - E2E Tests', () => {
     const typingIndicator = page.locator('#chat-typing');
     await expect(typingIndicator).toBeHidden();
 
-    // Validar que la respuesta contenga alguna negativa o mención a Larimide y no sugiera Clinique/L'Oreal
+    // Validar que la respuesta contenga alguna negativa o mención a Caramide y no sugiera Clinique/L'Oreal
     const chatMessagesText = await page.locator('#chat-messages').innerText();
-    expect(chatMessagesText.toLowerCase()).toContain('larimide');
+    expect(chatMessagesText.toLowerCase()).toContain('caramide');
     
     // Verificamos que responda adecuadamente sobre la exclusividad
     expect(chatMessagesText.toLowerCase()).toMatch(/solo|exclusiv|catálogo/);

@@ -7,8 +7,8 @@ import '../styles/global.css';
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta name="description" content="Larimide AI Skincare Assistant: Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial." />
-    <title>Larimide AI Skincare Assistant | Next Gen Skin Care</title>
+    <meta name="description" content="Caramide AI Skincare Assistant: Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial." />
+    <title>Caramide AI Skincare Assistant | Next Gen Skin Care</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
     <style>
@@ -47,7 +47,7 @@ import '../styles/global.css';
     <header id="main-header" class="w-full top-0 sticky bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline z-50">
         <div class="flex justify-between items-center px-gutter py-4 max-w-[1200px] mx-auto">
             <div class="max-w-[200px] cursor-pointer flex items-center">
-                <img src="/logo.png" alt="Larimide Logo" class="h-10 md:h-12 w-auto object-contain" />
+                <img src="/logo.png" alt="Caramide Logo" class="h-10 md:h-12 w-auto object-contain" />
             </div>
             <nav class="hidden md:flex items-center space-x-8">
                 <a class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">CARAMIDE</a>
@@ -76,14 +76,14 @@ import '../styles/global.css';
             <div class="relative z-10 max-w-[800px] w-full text-center flex flex-col items-center">
                 <span class="inline-block bg-secondary text-white px-3 py-1 font-label-caps text-label-caps mb-6">AI POWERED DERMATOLOGY</span>
                 <h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] text-primary mb-6">Tu experto en piel,<br/>potenciado por IA.</h1>
-                <p class="font-body-md text-on-surface-variant mb-8 max-w-[600px] mx-auto">Cuéntale a nuestra IA qué necesita tu piel y descubre tu rutina personalizada de Larimide al instante.</p>
+                <p class="font-body-md text-on-surface-variant mb-8 max-w-[600px] mx-auto">Cuéntale a nuestra IA qué necesita tu piel y descubre tu rutina personalizada de Caramide al instante.</p>
                 
                 <!-- Chat Window Container (Initially Hidden, expanded beautifully on first message) -->
                 <div id="chat-window" class="hidden w-full max-w-[700px] bg-white border border-primary text-left flex flex-col mb-4 transition-all duration-300">
                     <div class="border-b border-outline-variant px-6 py-3 bg-surface-container-low flex justify-between items-center">
                         <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider flex items-center gap-2">
                             <span class="w-2 h-2 bg-secondary animate-pulse inline-block"></span>
-                            Larimide AI Skincare Assistant
+                            Caramide AI Skincare Assistant
                         </span>
                         <button id="reset-chat" class="font-label-caps text-[10px] text-outline hover:text-secondary uppercase transition-colors flex items-center gap-1">
                             <span class="material-symbols-outlined text-[14px]">refresh</span> Reiniciar
@@ -94,7 +94,7 @@ import '../styles/global.css';
                         <div class="flex gap-4 items-start">
                             <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
                             <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
-                                <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Larimide.</p>
+                                <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Caramide.</p>
                                 <p>Dime qué tipo de piel tienes o qué inquietud quieres tratar (arrugas, imperfecciones, manchas, hidratación) y te diseñaré una rutina clínica personalizada con nuestros productos oficiales.</p>
                             </div>
                         </div>
@@ -335,7 +335,7 @@ import '../styles/global.css';
                 <div class="flex gap-4 items-start">
                     <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
                     <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
-                        <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Larimide.</p>
+                        <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Caramide.</p>
                         <p>Dime qué tipo de piel tienes o qué inquietud quieres tratar (arrugas, imperfecciones, manchas, hidratación) y te diseñaré una rutina clínica personalizada con nuestros productos oficiales.</p>
                     </div>
                 </div>
@@ -422,7 +422,7 @@ import '../styles/global.css';
                 messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
                     <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
-                        <strong>Larimide AI Assistant:</strong><br>
+                        <strong>Caramide AI Assistant:</strong><br>
                         <div class="mt-2">${formatReply(text)}</div>
                     </div>
                 `;

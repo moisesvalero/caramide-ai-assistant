@@ -1,0 +1,444 @@
+---
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Larimide AI Skincare Assistant: Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial." />
+    <title>Larimide AI Skincare Assistant | Next Gen Skin Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .clinical-shadow {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        }
+        .hero-gradient {
+            background: radial-gradient(circle at top right, #fbf9f9 0%, #efeded 100%);
+        }
+        .dot-pattern {
+            background-image: radial-gradient(#cfc4c5 0.5px, transparent 0.5px);
+            background-size: 24px 24px;
+        }
+        /* Estilos personalizados para el scrollbar */
+        .scrollbar-thin::-webkit-scrollbar {
+            width: 4px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb {
+            background: #cfc4c5;
+            border-radius: 0px;
+        }
+        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+            background: #7e7576;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary selection:text-white">
+    <!-- TopNavBar -->
+    <header id="main-header" class="w-full top-0 sticky bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline z-50">
+        <div class="flex justify-between items-center px-gutter py-4 max-w-[1200px] mx-auto">
+            <div class="max-w-[200px] cursor-pointer flex items-center">
+                <img src="/logo.png" alt="Larimide Logo" class="h-10 md:h-12 w-auto object-contain" />
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">CARAMIDE</a>
+                <a class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">LARIMEDICAL</a>
+                <a class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">LARIMIDE PRO</a>
+                <a class="font-label-caps text-label-caps uppercase text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary" href="#">PHILOSOPHY</a>
+            </nav>
+            <div class="flex items-center space-x-6">
+                <button class="cursor-pointer active:opacity-70" aria-label="Ver carrito de compras">
+                    <span class="material-symbols-outlined text-primary">shopping_bag</span>
+                </button>
+                <button class="cursor-pointer active:opacity-70" aria-label="Mi cuenta de usuario">
+                    <span class="material-symbols-outlined text-primary">person</span>
+                </button>
+                <button class="md:hidden cursor-pointer" aria-label="Abrir menú de navegación">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section: AI Assistant -->
+        <section class="relative min-h-[819px] flex flex-col items-center justify-center pt-section-padding-desktop pb-section-padding-desktop px-gutter overflow-hidden hero-gradient">
+            <div class="absolute inset-0 dot-pattern opacity-30 pointer-events-none"></div>
+            <div class="relative z-10 max-w-[800px] w-full text-center flex flex-col items-center">
+                <span class="inline-block bg-secondary text-white px-3 py-1 font-label-caps text-label-caps mb-6">AI POWERED DERMATOLOGY</span>
+                <h1 class="font-display-lg text-display-lg md:text-[64px] md:leading-[72px] text-primary mb-6">Tu experto en piel,<br/>potenciado por IA.</h1>
+                <p class="font-body-md text-on-surface-variant mb-8 max-w-[600px] mx-auto">Cuéntale a nuestra IA qué necesita tu piel y descubre tu rutina personalizada de Larimide al instante.</p>
+                
+                <!-- Chat Window Container (Initially Hidden, expanded beautifully on first message) -->
+                <div id="chat-window" class="hidden w-full max-w-[700px] bg-white border border-primary text-left flex flex-col mb-4 transition-all duration-300">
+                    <div class="border-b border-outline-variant px-6 py-3 bg-surface-container-low flex justify-between items-center">
+                        <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider flex items-center gap-2">
+                            <span class="w-2 h-2 bg-secondary animate-pulse inline-block"></span>
+                            Larimide AI Skincare Assistant
+                        </span>
+                        <button id="reset-chat" class="font-label-caps text-[10px] text-outline hover:text-secondary uppercase transition-colors flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[14px]">refresh</span> Reiniciar
+                        </button>
+                    </div>
+                    <div id="chat-messages" class="max-h-[350px] overflow-y-auto px-6 py-4 flex flex-col gap-4 scrollbar-thin">
+                        <!-- Welcome message -->
+                        <div class="flex gap-4 items-start">
+                            <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
+                            <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
+                                <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Larimide.</p>
+                                <p>Dime qué tipo de piel tienes o qué inquietud quieres tratar (arrugas, imperfecciones, manchas, hidratación) y te diseñaré una rutina clínica personalizada con nuestros productos oficiales.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Typying status -->
+                    <div id="chat-typing" class="hidden px-6 py-3 border-t border-outline-variant bg-surface-container-lowest flex gap-4 items-center animate-pulse">
+                        <span class="material-symbols-outlined text-outline animate-spin text-lg">autorenew</span>
+                        <span class="font-label-caps text-[11px] uppercase tracking-wider text-outline">Analizando tu perfil clínico...</span>
+                    </div>
+                </div>
+
+                <!-- AI Composer Box -->
+                <div class="w-full max-w-[700px] bg-white border border-primary p-2 group focus-within:border-secondary transition-all duration-300">
+                    <div class="flex flex-col md:flex-row items-center gap-2">
+                        <div class="flex-1 w-full px-4 py-3 flex items-center gap-3">
+                            <span class="material-symbols-outlined text-outline">auto_awesome</span>
+                            <label for="chat-input" class="sr-only">Dime qué necesita tu piel</label>
+                            <input id="chat-input" class="w-full bg-transparent border-none focus:ring-0 font-body-md text-on-surface placeholder:text-outline" placeholder="Dime qué necesita tu piel (ej. 'tengo piel grasa')..." type="text"/>
+                        </div>
+                        <button id="chat-send" class="w-full md:w-auto bg-primary text-on-primary px-8 py-4 font-label-caps text-label-caps uppercase hover:bg-secondary transition-colors duration-300 flex items-center justify-center gap-2">
+                            Analizar <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Prompt Examples -->
+                <div class="mt-8 flex flex-wrap justify-center gap-3">
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Antiarrugas</button>
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Piel Grasa</button>
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Hidratación profunda</button>
+                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary transition-all font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Manchas Solares</button>
+                </div>
+            </div>
+            <!-- Background Aesthetic Element -->
+            <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-64 opacity-10 pointer-events-none"></div>
+        </section>
+
+        <!-- Product Grid: Recommended Bestsellers -->
+        <section class="max-w-[1200px] mx-auto py-section-padding-desktop px-gutter">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="font-headline-lg text-headline-lg uppercase tracking-tight text-primary">Nuestros Best-Sellers</h2>
+                    <p class="font-body-md text-on-surface-variant mt-2">Tecnología clínica aplicada para resultados visibles.</p>
+                </div>
+                <a class="font-label-caps text-label-caps border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-all" href="#">VER TODOS LOS PRODUCTOS</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Product Card 1: Retibak -->
+                <div class="group border-b border-transparent hover:border-outline-variant transition-all pb-8">
+                    <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
+                        <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_QRL8RGYsno3OkOHSDcEk5ojnGh0HyEa5pU8Xbc_KCtSEDwW9dkHoFea5tiPqiUGtykZUf9kDK9kc0rDZunkCt-sHYoC2m6fcdRnG_INF01Db9Nb8e59tlcuK_eyGx8CpUAkrMsVMqI_MY2VmuVCZfnO4Z5OFA1wzYvVy-dOUea4jDx731MbSw602vBJ9RXTz7MkVhRbctPFrgm7eOj3y_wgRX1-xv4NC_zNU_Lca54xvrbUfLIomHslz87ids2l-9tHgGhTwcyGy" alt="Retibak"/>
+                        <span class="absolute top-4 left-4 bg-secondary text-white px-2 py-1 font-label-caps text-[10px]">EPIGENÉTICO</span>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">LARIMIDE</h3>
+                        <p class="font-headline-lg text-[20px] mb-2 leading-tight">Retibak – Sérum Epigenético 30ml</p>
+                        <p class="font-body-md font-bold mb-6">59.95€</p>
+                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white transition-all">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <!-- Product Card 2: Oxystem -->
+                <div class="group border-b border-transparent hover:border-outline-variant transition-all pb-8">
+                    <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
+                        <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1hy4jx4sGXwUleZ_kV0nStXwyhp6WKY_7yZzxcppbBFPaxsJhOwr17MOHFuqZ3J7UzjrMPY2Y27dsnYhyQXh4yw20k60wxoImiVRTuUBo4Uww6m0XBe8pq99ityeX4ZfurzHaJN-VnxQUy4jOh_ouWmyjMQcVsHAIoJJrax05dhal0-aQAXqLy0YjKTGKPqRHhL419BCMIUj58M2DoZaGhda_qF-omxcRpJmZsE0QHy562EuB8r026p2bAC7vZw2CSi-dji0DGl8a" alt="Oxystem"/>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">LARIMIDE</h3>
+                        <p class="font-headline-lg text-[20px] mb-2 leading-tight">Oxystem – Sérum Celular 30ml</p>
+                        <p class="font-body-md font-bold mb-6">34.94€</p>
+                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white transition-all">Añadir al Carrito</button>
+                    </div>
+                </div>
+                <!-- Product Card 3: Mistify -->
+                <div class="group border-b border-transparent hover:border-outline-variant transition-all pb-8">
+                    <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
+                        <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZV5dhmiVikZP0F7_YLcHnNIq_vtxWD9HHjrWzDahKaSmJ5yv-dSKukkEEiQoq9rguvLXGQ1lE5mYRqigQg-fzCg4mNA74UzsVwX5igOvwpi3lkOZLYb3HD4JrKo7d7Gk6NU6C89PDfwrCYn3Bt1WoJp3GDiAYdPU0N1UCZ5CjUCStuNTIAX_cQ0y8RcJFnwqZ06m_kbTb1bnGCVRwbPkVWnBlpA1fSvgbWnb4vn7cpO2n2M47hBztD2AqRD__gny5jNGk4v65v0_R" alt="Mistify"/>
+                        <span class="absolute top-4 left-4 bg-primary text-white px-2 py-1 font-label-caps text-[10px]">NEW</span>
+                    </div>
+                    <div class="px-2">
+                        <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">LARIMIDE</h3>
+                        <p class="font-headline-lg text-[20px] mb-2 leading-tight">Mistify – Bruma Equilibrante 50ml</p>
+                        <p class="font-body-md font-bold mb-6">34.94€</p>
+                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white transition-all">Añadir al Carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Signals / Features -->
+        <section class="bg-surface-container-low border-y border-outline-variant">
+            <div class="max-w-[1200px] mx-auto py-12 px-gutter grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="flex flex-col items-center text-center">
+                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">verified_user</span>
+                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Dermatológicamente Testado</h4>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">eco</span>
+                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Fórmula Vegana</h4>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">location_on</span>
+                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Hecho en España</h4>
+                </div>
+                <div class="flex flex-col items-center text-center">
+                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">local_shipping</span>
+                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Envío Express 24/72h</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Grid: Science & Results -->
+        <section class="max-w-[1200px] mx-auto py-section-padding-desktop px-gutter">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[600px]">
+                <div class="md:col-span-7 bg-primary text-white p-12 flex flex-col justify-end relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-64 h-64 opacity-20 group-hover:opacity-40 transition-opacity"></div>
+                    <div class="relative z-10">
+                        <span class="font-label-caps text-label-caps text-outline-variant mb-4 block">LA CIENCIA</span>
+                        <h2 class="font-display-lg text-display-lg mb-6">Cosmética de Grado Farmacéutico.</h2>
+                        <p class="max-w-[450px] mb-8 font-body-md text-surface-container">Ingredientes de alta pureza formulados para penetrar en las capas más profundas de la dermis, logrando un cambio real desde el interior.</p>
+                        <button class="px-8 py-3 bg-white text-primary font-label-caps text-label-caps uppercase hover:bg-secondary hover:text-white transition-all">Nuestra Filosofía</button>
+                    </div>
+                </div>
+                <div class="md:col-span-5 grid grid-rows-2 gap-gutter">
+                    <div class="bg-surface-container border border-outline-variant p-8 flex items-center justify-between group">
+                        <div class="max-w-[200px]">
+                            <h4 class="font-headline-lg text-[24px] mb-2">Línea Pro</h4>
+                            <p class="font-body-md text-on-surface-variant text-[14px]">Resultados de clínica profesional en tu casa.</p>
+                        </div>
+                        <span class="material-symbols-outlined text-[48px] text-outline group-hover:text-primary transition-colors">science</span>
+                    </div>
+                    <div class="bg-cover bg-center border border-outline-variant" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhtYW9gycDxS4strc6EaFh6Q0Hp8XtMf5Fl8oHVTpqUVKhgkRWGjJDFk1zwID5JQaY_bC0umDHymrYU1H27gxRA-kveQJjnWRdZb6Ajrf8yqxnItjE0fRU1DJyjKNSXSXopBq1-PiEYHBTWhYUutYrgWgc8J36YxUuqz69-KX2F2nmQtbF3Ho_16JKwEigc1OHyrzXq9NVPfN0X1OZkiD9-W_W0QVMIxwkQX0tad5mzrl1OZ_5SDr8hc_C5HHIiFZ_tVWJgdIU8DQw')"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full mt-section-padding-desktop bg-tertiary dark:bg-tertiary-container border-t border-primary">
+        <div class="flex flex-col md:flex-row justify-between items-center px-gutter py-margin-safe max-w-[1200px] mx-auto text-on-tertiary">
+            <div class="mb-8 md:mb-0">
+                <div class="font-headline-lg text-headline-lg text-on-tertiary tracking-tighter mb-4">LARIMIDE SPAIN</div>
+                <p class="font-label-caps text-label-caps opacity-60">© 2024 LARIMIDE SPAIN. CLINICALLY PROVEN SKINCARE.</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container" href="#">PRIVACY POLICY</a>
+                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container" href="#">TERMS OF SERVICE</a>
+                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container" href="#">DERMATOLOGICAL TESTING</a>
+                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container underline" href="#">CONTACT</a>
+            </div>
+            <div class="mt-8 md:mt-0 flex gap-4">
+                <span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" role="button" tabindex="0" aria-label="Idioma de la página">public</span>
+                <span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" role="button" tabindex="0" aria-label="Certificación de seguridad">shield</span>
+            </div>
+        </div>
+        <div class="bg-black py-4">
+            <div class="max-w-[1200px] mx-auto px-gutter text-center text-[10px] tracking-[0.2em] font-label-caps text-white/40">
+                NEXT GENERATION SKINCARE SERIES · MADRID · BARCELONA · LONDON
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Array to hold chat messages history
+        let chatMessages = [];
+        
+        const chatWindow = document.getElementById('chat-window');
+        const chatMessagesDiv = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const chatSend = document.getElementById('chat-send');
+        const chatTyping = document.getElementById('chat-typing');
+        const resetChatBtn = document.getElementById('reset-chat');
+        const promptChips = document.querySelectorAll('.prompt-chip');
+
+        // Event Listeners
+        chatInput.addEventListener('focus', () => {
+            chatInput.parentElement.parentElement.classList.add('ring-2', 'ring-secondary/20');
+        });
+
+        chatInput.addEventListener('blur', () => {
+            chatInput.parentElement.parentElement.classList.remove('ring-2', 'ring-secondary/20');
+        });
+
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        chatSend.addEventListener('click', sendMessage);
+
+        resetChatBtn.addEventListener('click', resetChat);
+
+        promptChips.forEach(chip => {
+            chip.addEventListener('click', () => {
+                const promptText = chip.textContent.trim();
+                let fullPrompt = "";
+                if (promptText === "Piel Grasa") {
+                    fullPrompt = "Tengo la piel grasa y me salen brillos, ¿qué me recomiendas?";
+                } else if (promptText === "Antiarrugas") {
+                    fullPrompt = "Busco un tratamiento antiarrugas potente, ¿qué tenéis?";
+                } else if (promptText === "Hidratación profunda") {
+                    fullPrompt = "Tengo la piel deshidratada y tirante, ¿cómo la hidrato?";
+                } else if (promptText === "Manchas Solares") {
+                    fullPrompt = "Me han salido manchas del sol en la cara, ¿cómo las reduzco?";
+                } else {
+                    fullPrompt = promptText;
+                }
+                
+                chatInput.value = fullPrompt;
+                sendMessage();
+            });
+        });
+
+        // Functions
+        function formatReply(text) {
+            // Escape basic HTML
+            let escaped = text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;");
+            
+            // Bold markdown: **text** -> <strong>text</strong>
+            escaped = escaped.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+            
+            // List items: - item -> <li>item</li>
+            escaped = escaped.replace(/^\s*-\s*(.*?)$/gm, "• $1");
+            
+            // Line breaks
+            escaped = escaped.replace(/\n/g, "<br>");
+            
+            return escaped;
+        }
+
+        function resetChat() {
+            chatMessages = [];
+            chatMessagesDiv.innerHTML = `
+                <div class="flex gap-4 items-start">
+                    <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
+                    <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
+                        <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Larimide.</p>
+                        <p>Dime qué tipo de piel tienes o qué inquietud quieres tratar (arrugas, imperfecciones, manchas, hidratación) y te diseñaré una rutina clínica personalizada con nuestros productos oficiales.</p>
+                    </div>
+                </div>
+            `;
+            chatWindow.classList.add('hidden');
+            chatInput.value = "";
+        }
+
+        async function sendMessage() {
+            if (chatSend.disabled) return;
+
+            const query = chatInput.value.trim();
+            if (!query) return;
+
+            // Clear input
+            chatInput.value = "";
+
+            // Show chat window if hidden
+            if (chatWindow.classList.contains('hidden')) {
+                chatWindow.classList.remove('hidden');
+                chatWindow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            // Append user message to UI
+            appendMessage('user', query);
+            
+            // Save to messages history
+            chatMessages.push({ role: 'user', content: query });
+
+            // Show typing indicator
+            chatTyping.classList.remove('hidden');
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+
+            // Change button state
+            chatSend.disabled = true;
+            chatSend.innerHTML = `Analizando... <span class="material-symbols-outlined animate-spin text-[18px]">autorenew</span>`;
+
+            try {
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ messages: chatMessages })
+                });
+
+                const data = await response.json();
+                
+                // Hide typing indicator
+                chatTyping.classList.add('hidden');
+
+                if (response.ok && data.reply) {
+                    appendMessage('assistant', data.reply);
+                    chatMessages.push({ role: 'assistant', content: data.reply });
+                } else {
+                    const errMsg = data.error || 'Ocurrió un error al procesar tu solicitud.';
+                    appendMessage('error', errMsg);
+                }
+            } catch (error) {
+                chatTyping.classList.add('hidden');
+                appendMessage('error', 'Error de conexión con el servidor. Por favor, inténtalo de nuevo.');
+                console.error('Chat error:', error);
+            } finally {
+                // Restore button state
+                chatSend.disabled = false;
+                chatSend.innerHTML = `Analizar <span class="material-symbols-outlined">arrow_forward</span>`;
+                chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+            }
+        }
+
+        function appendMessage(sender, text) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'flex gap-4 items-start';
+
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <span class="material-symbols-outlined text-primary bg-surface-container-low border border-outline-variant p-2 text-lg">person</span>
+                    <div class="flex-1 bg-surface-container-low border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
+                        <strong>Tú:</strong><br>
+                        ${text}
+                    </div>
+                `;
+            } else if (sender === 'assistant') {
+                messageDiv.innerHTML = `
+                    <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
+                    <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
+                        <strong>Larimide AI Assistant:</strong><br>
+                        <div class="mt-2">${formatReply(text)}</div>
+                    </div>
+                `;
+            } else if (sender === 'error') {
+                messageDiv.innerHTML = `
+                    <span class="material-symbols-outlined text-error bg-error-container p-2 text-lg">warning</span>
+                    <div class="flex-1 bg-error-container border border-error p-4 text-error text-[15px] leading-relaxed">
+                        <strong>Sistema:</strong><br>
+                        ${text}
+                    </div>
+                `;
+            }
+
+            chatMessagesDiv.appendChild(messageDiv);
+            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+        }
+    </script>
+</body>
+</html>

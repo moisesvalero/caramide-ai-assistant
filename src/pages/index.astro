@@ -94,7 +94,7 @@ import '../styles/global.css';
 
     <main>
         <!-- Hero Section: AI Assistant -->
-        <section class="relative min-h-[819px] flex flex-col items-center justify-center pt-section-padding-desktop pb-section-padding-desktop px-gutter overflow-hidden hero-gradient">
+        <section class="relative min-h-[819px] flex flex-col items-center justify-center pt-section-padding-mobile pb-section-padding-mobile md:pt-section-padding-desktop md:pb-section-padding-desktop px-gutter overflow-hidden hero-gradient">
             <!-- Aurora Lights Background -->
             <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
                 <div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-secondary/5 blur-[120px] animate-aurora-1"></div>
@@ -137,15 +137,15 @@ import '../styles/global.css';
                 </div>
 
                 <!-- AI Composer Box -->
-                <div class="w-full max-w-[700px] bg-white border border-primary p-2 group transition-all duration-300 opacity-0 animate-fade-in-up animation-delay-300">
-                    <div class="flex flex-col md:flex-row items-center gap-2">
-                        <div class="flex-1 w-full px-4 py-3 flex items-center gap-3">
-                            <span class="material-symbols-outlined text-outline">auto_awesome</span>
+                <div class="w-full max-w-[700px] bg-white border border-outline-variant focus-within:border-primary p-1.5 md:p-2 group transition-all duration-300 opacity-0 animate-fade-in-up animation-delay-300">
+                    <div class="flex flex-row items-center justify-between gap-2">
+                        <div class="flex-1 px-2 py-1 flex items-center gap-3 min-w-0">
+                            <span class="material-symbols-outlined text-outline flex-shrink-0 text-[20px] md:text-[24px]">auto_awesome</span>
                             <label for="chat-input" class="sr-only">Dime qué necesita tu piel</label>
-                            <input id="chat-input" class="w-full bg-transparent border-none focus:outline-none focus:ring-0 focus-visible:outline-none outline-none text-body-md font-body-md text-on-surface placeholder:text-outline" placeholder="Dime qué necesita tu piel (ej. 'tengo piel grasa')..." type="text"/>
+                            <input id="chat-input" class="w-full bg-transparent border-none focus:outline-none focus:ring-0 focus-visible:outline-none outline-none text-body-md font-body-md text-on-surface placeholder:text-outline/60 min-w-0" placeholder="Dime qué necesita tu piel (ej. 'tengo piel grasa')...." type="text"/>
                         </div>
-                        <button id="chat-send" class="w-full md:w-auto bg-primary text-on-primary px-6 py-4 hover:bg-secondary hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center" aria-label="Enviar consulta">
-                            <span class="material-symbols-outlined">send</span>
+                        <button id="chat-send" class="w-10 h-10 md:w-11 md:h-11 flex-shrink-0 bg-primary text-on-primary hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 flex items-center justify-center cursor-pointer" aria-label="Enviar consulta">
+                            <span class="material-symbols-outlined text-[18px] md:text-[20px]">send</span>
                         </button>
                     </div>
                 </div>
@@ -308,6 +308,16 @@ import '../styles/global.css';
             }
         });
 
+        chatInput.addEventListener('input', () => {
+            if (chatInput.value.trim().length > 0) {
+                chatSend.classList.remove('bg-primary');
+                chatSend.classList.add('bg-secondary');
+            } else {
+                chatSend.classList.remove('bg-secondary');
+                chatSend.classList.add('bg-primary');
+            }
+        });
+
         chatSend.addEventListener('click', sendMessage);
 
         resetChatBtn.addEventListener('click', resetChat);
@@ -369,6 +379,8 @@ import '../styles/global.css';
             `;
             chatWindow.classList.add('hidden');
             chatInput.value = "";
+            chatSend.classList.remove('bg-secondary');
+            chatSend.classList.add('bg-primary');
         }
 
         async function sendMessage() {
@@ -377,8 +389,10 @@ import '../styles/global.css';
             const query = chatInput.value.trim();
             if (!query) return;
 
-            // Clear input
+            // Clear input and reset button style
             chatInput.value = "";
+            chatSend.classList.remove('bg-secondary');
+            chatSend.classList.add('bg-primary');
 
             // Show chat window if hidden
             if (chatWindow.classList.contains('hidden')) {

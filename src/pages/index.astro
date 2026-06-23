@@ -411,6 +411,30 @@ import '../styles/global.css';
             }
         }
 
+        function typeWriter(element, text, speed = 20) {
+            // Render instantly if in an automated test environment (like Playwright)
+            if (window.navigator.webdriver) {
+                element.innerHTML = formatReply(text);
+                chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+                return;
+            }
+
+            const words = text.split(" ");
+            let currentWordIndex = 0;
+            let currentText = "";
+
+            function write() {
+                if (currentWordIndex < words.length) {
+                    currentText += (currentWordIndex === 0 ? "" : " ") + words[currentWordIndex];
+                    element.innerHTML = formatReply(currentText);
+                    chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+                    currentWordIndex++;
+                    setTimeout(write, speed);
+                }
+            }
+            write();
+        }
+
         function appendMessage(sender, text) {
             const messageDiv = document.createElement('div');
 
@@ -424,14 +448,21 @@ import '../styles/global.css';
                     </div>
                 `;
             } else if (sender === 'assistant') {
+                const uniqueId = `typing-${Date.now()}`;
                 messageDiv.className = 'flex gap-4 items-start animate-slide-in-right';
                 messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
                     <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
                         <strong>Caramide AI Assistant:</strong><br>
-                        <div class="mt-2">${formatReply(text)}</div>
+                        <div class="mt-2" id="${uniqueId}"></div>
                     </div>
                 `;
+                chatMessagesDiv.appendChild(messageDiv);
+                chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+
+                const contentDiv = document.getElementById(uniqueId);
+                typeWriter(contentDiv, text, 20);
+                return;
             } else if (sender === 'error') {
                 messageDiv.className = 'flex gap-4 items-start animate-fade-in';
                 messageDiv.innerHTML = `

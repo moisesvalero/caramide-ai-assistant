@@ -411,7 +411,7 @@ import '../styles/global.css';
             }
         }
 
-        function typeWriter(element, text, speed = 20) {
+        function typeWriter(element, text, speed = 65) {
             // Render instantly if in an automated test environment (like Playwright)
             if (window.navigator.webdriver) {
                 element.innerHTML = formatReply(text);
@@ -461,7 +461,7 @@ import '../styles/global.css';
                 chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
 
                 const contentDiv = document.getElementById(uniqueId);
-                typeWriter(contentDiv, text, 20);
+                typeWriter(contentDiv, text, 65);
                 return;
             } else if (sender === 'error') {
                 messageDiv.className = 'flex gap-4 items-start animate-fade-in';

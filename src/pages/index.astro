@@ -121,14 +121,7 @@ import '../styles/global.css';
                         </button>
                     </div>
                     <div id="chat-messages" class="max-h-[350px] overflow-y-auto px-6 py-4 flex flex-col gap-4 scrollbar-thin">
-                        <!-- Welcome message -->
-                        <div class="flex gap-4 items-start">
-                            <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
-                            <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
-                                <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Caramide.</p>
-                                <p>Dime qué tipo de piel tienes o qué inquietud quieres tratar (arrugas, imperfecciones, manchas, hidratación) y te diseñaré una rutina clínica personalizada con nuestros productos oficiales.</p>
-                            </div>
-                        </div>
+                        <!-- Los mensajes de la conversación se cargarán aquí dinámicamente -->
                     </div>
                     
                     <!-- Typying status -->
@@ -370,15 +363,7 @@ import '../styles/global.css';
 
         function resetChat() {
             chatMessages = [];
-            chatMessagesDiv.innerHTML = `
-                <div class="flex gap-4 items-start">
-                    <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
-                    <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
-                        <p class="mb-2"><strong>¡Hola!</strong> Soy tu asesor de dermatología Caramide.</p>
-                        <p>Dime qué tipo de piel tienes o qué inquietud quieres tratar (arrugas, imperfecciones, manchas, hidratación) y te diseñaré una rutina clínica personalizada con nuestros productos oficiales.</p>
-                    </div>
-                </div>
-            `;
+            chatMessagesDiv.innerHTML = '';
             chatWindow.classList.add('hidden');
             chatInput.value = "";
             chatSend.classList.remove('bg-secondary');

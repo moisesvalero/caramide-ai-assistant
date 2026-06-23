@@ -72,7 +72,7 @@ Sigue estas reglas estrictas:
     });
   } catch (error: any) {
     console.error('Error calling OpenAI API:', error);
-    return new Response(JSON.stringify({ error: 'Lo sentimos, ha ocurrido un error al conectar con el servicio de análisis de Larimide. Por favor, inténtalo de nuevo.' }), {
+    return new Response(JSON.stringify({ error: 'Lo sentimos, ha ocurrido un error al conectar con el servicio de análisis de Caramide. Por favor, inténtalo de nuevo.' }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     });

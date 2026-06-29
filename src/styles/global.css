@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-error-container: #ffdad6;
@@ -63,12 +63,12 @@
   --radius-full: 9999px;
 
   /* font families */
-  --font-headline-lg-mobile: "Manrope", sans-serif;
-  --font-display-lg: "Manrope", sans-serif;
-  --font-headline-lg: "Manrope", sans-serif;
-  --font-label-caps: "IBM Plex Sans", sans-serif;
-  --font-body-md: "Manrope", sans-serif;
-  --font-serif-luxury: "Cormorant Garamond", serif;
+  --font-headline-lg-mobile: 'Manrope', sans-serif;
+  --font-display-lg: 'Manrope', sans-serif;
+  --font-headline-lg: 'Manrope', sans-serif;
+  --font-label-caps: 'IBM Plex Sans', sans-serif;
+  --font-body-md: 'Manrope', sans-serif;
+  --font-serif-luxury: 'Cormorant Garamond', serif;
 }
 
 @utility text-headline-lg-mobile {
@@ -174,7 +174,8 @@
 }
 
 @keyframes aurora-1 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0px, 0px) scale(1);
   }
   33% {
@@ -186,7 +187,8 @@
 }
 
 @keyframes aurora-2 {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0px, 0px) scale(1);
   }
   50% {

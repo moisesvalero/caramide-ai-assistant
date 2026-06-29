@@ -120,15 +120,15 @@ The layout follows a **Fixed Grid** philosophy on desktop to maintain an editori
 
 To maintain the medical-grade aesthetic, this design system avoids traditional drop shadows. Depth is achieved through **Tonal Layering** and **High-Contrast Outlines**.
 
-- **Flat Stack:** Elements are placed on the same Z-plane, separated by thin (1px) solid black or light gray borders. 
+- **Flat Stack:** Elements are placed on the same Z-plane, separated by thin (1px) solid black or light gray borders.
 - **Interaction Depth:** Instead of shadows, use "recessed" states for inputs and "inverted" states for buttons (White text on Black background) to indicate interactivity.
 - **Image Depth:** Depth is primarily introduced via product photography featuring natural reflections and shadows, rather than UI-generated effects.
 
 ## Shapes
 
-The shape language is **Strictly Square**. 
+The shape language is **Strictly Square**.
 
-In keeping with the clinical and architectural nature of the brand, a 0px border radius is applied to all primary components including buttons, inputs, and card containers. This sharp-edged approach conveys precision and uncompromising standards. 
+In keeping with the clinical and architectural nature of the brand, a 0px border radius is applied to all primary components including buttons, inputs, and card containers. This sharp-edged approach conveys precision and uncompromising standards.
 
 Circular shapes are reserved exclusively for icon backgrounds or specific decorative "stamp" elements (e.g., dermatologically tested seals) to provide a singular point of organic contrast.
 

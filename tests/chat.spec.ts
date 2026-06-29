@@ -1,10 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Caramide AI Skincare Assistant - E2E Tests', () => {
-
   test('debe cargar la landing page con el diseño Clinical Minimalist', async ({ page }) => {
     await page.goto('/');
-    
+
     // Validar título
     await expect(page).toHaveTitle(/Caramide AI Skincare Assistant/);
 
@@ -12,11 +11,11 @@ test.describe('Caramide AI Skincare Assistant - E2E Tests', () => {
     await expect(page.locator('#main-header')).toBeVisible();
     await expect(page.locator('h1').first()).toContainText('Tu experto en piel');
     await expect(page.locator('footer').first()).toBeVisible();
-    
+
     // El logo físico debe cargarse correctamente
     const logo = page.locator('img[alt="Caramide Logo"]');
     await expect(logo).toBeVisible();
-    
+
     // La ventana del chat debe estar oculta al inicio
     const chatWindow = page.locator('#chat-window');
     await expect(chatWindow).toHaveClass(/hidden/);
@@ -26,19 +25,18 @@ test.describe('Caramide AI Skincare Assistant - E2E Tests', () => {
     await page.goto('/');
 
     // Mockear la respuesta de la API del chat
-    await page.route('**/api/chat', async route => {
+    await page.route('**/api/chat', async (route) => {
       await route.fulfill({
         status: 200,
         contentType: 'application/json',
         body: JSON.stringify({
-          reply: 'Para regular el exceso de sebo, te recomiendo utilizar nuestro tratamiento especializado **Tinellin (Sérum Control de Pieles Grasas)** por las mañanas, complementándolo con el **Comedopeel Sérum** por las noches para limpiar poros.'
-        })
+          reply:
+            'Para piel grasa te sugiero **CeraVe Gel Limpiador Espumoso** (CeraVe) por la mañana y **The Ordinary Glycolic Acid 7% Toning Solution** (The Ordinary) por la noche. - [Ver en Amazon](https://www.amazon.es/s?k=CeraVe+Gel+Limpiador) | [Ver en Google](https://www.google.com/search?tbm=shop&q=CeraVe+Gel+Limpiador)',
+        }),
       });
     });
 
     const chatWindow = page.locator('#chat-window');
-    const chatInput = page.locator('#chat-input');
-    const sendButton = page.locator('#chat-send');
 
     // Clic en el chip rápido "Piel Grasa"
     const pielGrasaChip = page.locator('button.prompt-chip', { hasText: 'Piel Grasa' });
@@ -56,50 +54,55 @@ test.describe('Caramide AI Skincare Assistant - E2E Tests', () => {
     // Comprobamos que en el contenedor de mensajes haya al menos un mensaje del usuario y uno del asistente
     const userMessage = page.locator('#chat-messages >> text="Tú:"');
     const assistantMessage = page.locator('#chat-messages >> text="Caramide AI Assistant:"');
-    
+
     await expect(userMessage).toBeVisible();
     await expect(assistantMessage).toBeVisible();
 
-    // Validar que la IA recomiende productos correctos para piel grasa (Tinellin o Comedopeel)
+    // Validar que la IA recomiende marcas externas (CeraVe o The Ordinary)
     const chatMessagesText = await page.locator('#chat-messages').innerText();
-    expect(chatMessagesText.toLowerCase()).toMatch(/tinellin|comedopeel/);
+    expect(chatMessagesText.toLowerCase()).toMatch(
+      /cerave|the ordinary|la roche|vichy|bioderma|eucerin|neutrogena|av[eè]ne/,
+    );
   });
 
-  test('debe rechazar educadamente la recomendación de marcas de la competencia', async ({ page }) => {
+  test('debe recomendar productos de marcas externas con enlaces a Amazon y Google', async ({ page }) => {
     await page.goto('/');
 
-    // Mockear la respuesta de rechazo de la competencia
-    await page.route('**/api/chat', async route => {
+    // Mockear la respuesta recomendando productos de otras marcas
+    await page.route('**/api/chat', async (route) => {
       await route.fulfill({
         status: 200,
         contentType: 'application/json',
         body: JSON.stringify({
-          reply: 'Como asesor de Caramide, solo puedo recomendar productos de nuestro catálogo oficial. Te sugiero probar nuestros tratamientos científicos.'
-        })
+          reply:
+            'Te recomiendo **CeraVe Hidratante Facial con SPF** (CeraVe) por la mañana. [Ver en Amazon](https://www.amazon.es/s?k=CeraVe+Hidratante+SPF) | [Ver en Google](https://www.google.com/search?tbm=shop&q=CeraVe+Hidratante+SPF)',
+        }),
       });
     });
-    
+
     const chatInput = page.locator('#chat-input');
     const sendButton = page.locator('#chat-send');
     const chatWindow = page.locator('#chat-window');
 
-    // Escribimos una pregunta sobre la competencia
-    await chatInput.fill('¿Me recomiendas alguna crema de Clinique o L\'Oreal?');
+    await chatInput.fill('¿Me recomiendas una crema hidratante de CeraVe?');
     await sendButton.click();
 
-    // El chat window debe abrirse
     await expect(chatWindow).not.toHaveClass(/hidden/);
 
-    // Esperar respuesta de la IA
     const typingIndicator = page.locator('#chat-typing');
     await expect(typingIndicator).toBeHidden();
 
-    // Validar que la respuesta contenga alguna negativa o mención a Caramide y no sugiera Clinique/L'Oreal
     const chatMessagesText = await page.locator('#chat-messages').innerText();
-    expect(chatMessagesText.toLowerCase()).toContain('caramide');
-    
-    // Verificamos que responda adecuadamente sobre la exclusividad
-    expect(chatMessagesText.toLowerCase()).toMatch(/solo|exclusiv|catálogo/);
+    // La IA debe mencionar marcas externas
+    expect(chatMessagesText.toLowerCase()).toMatch(
+      /cerave|the ordinary|la roche|vichy|bioderma|eucerin|neutrogena|av[eè]ne/,
+    );
+    // Debe incluir los enlaces externos
+    expect(chatMessagesText.toLowerCase()).toMatch(/amazon\.es|google\.com\/search/);
+    // No debe recomendar productos Caramide/Laramide
+    expect(chatMessagesText.toLowerCase()).not.toMatch(
+      /retibak|oxystem|mistify|tinellin|comedopeel|pureglycopeel|vitaminic|maxinadin|dna repair/,
+    );
   });
 
   test('no debe tener desbordamiento horizontal en pantallas móviles (responsive)', async ({ page }) => {
@@ -109,8 +112,7 @@ test.describe('Caramide AI Skincare Assistant - E2E Tests', () => {
     const overflow = await page.evaluate(() => {
       return document.documentElement.scrollWidth > window.innerWidth;
     });
-    
+
     expect(overflow).toBe(false);
   });
-
 });

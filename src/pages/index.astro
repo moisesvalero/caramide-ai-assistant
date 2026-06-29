@@ -2,12 +2,15 @@
 import '../styles/global.css';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html class="light" lang="es">
-<head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <meta name="description" content="Caramide AI Skincare Assistant: Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial." />
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      name="description"
+      content="Caramide AI Skincare Assistant: Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial."
+    />
     <title>Caramide AI Skincare Assistant | Next Gen Skin Care</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
@@ -16,7 +19,10 @@ import '../styles/global.css';
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://caramide-ai-assistant.vercel.app/" />
     <meta property="og:title" content="Caramide AI Skincare Assistant | Next Gen Skin Care" />
-    <meta property="og:description" content="Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial." />
+    <meta
+      property="og:description"
+      content="Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial."
+    />
     <meta property="og:image" content="https://caramide-ai-assistant.vercel.app/screen.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -25,481 +31,692 @@ import '../styles/global.css';
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://caramide-ai-assistant.vercel.app/" />
     <meta property="twitter:title" content="Caramide AI Skincare Assistant | Next Gen Skin Care" />
-    <meta property="twitter:description" content="Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial." />
+    <meta
+      property="twitter:description"
+      content="Descubre tu rutina de cuidado de la piel personalizada por ciencia clínica e inteligencia artificial."
+    />
     <meta property="twitter:image" content="https://caramide-ai-assistant.vercel.app/screen.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;700;800&family=IBM+Plex+Sans:wght@600&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .clinical-shadow {
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-        }
-        .hero-gradient {
-            background: radial-gradient(circle at top right, #fbf9f9 0%, #efeded 100%);
-        }
-        .dot-pattern {
-            background-image: radial-gradient(#cfc4c5 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-        }
-        /* Estilos personalizados para el scrollbar */
-        .scrollbar-thin::-webkit-scrollbar {
-            width: 4px;
-        }
-        .scrollbar-thin::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .scrollbar-thin::-webkit-scrollbar-thumb {
-            background: #cfc4c5;
-            border-radius: 0px;
-        }
-        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-            background: #7e7576;
-        }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 300,
+          'GRAD' 0,
+          'opsz' 24;
+        vertical-align: middle;
+      }
+      .clinical-shadow {
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+      }
+      .hero-gradient {
+        background: radial-gradient(circle at top right, #fbf9f9 0%, #efeded 100%);
+      }
+      .dot-pattern {
+        background-image: radial-gradient(#cfc4c5 0.5px, transparent 0.5px);
+        background-size: 24px 24px;
+      }
+      /* Estilos personalizados para el scrollbar */
+      .scrollbar-thin::-webkit-scrollbar {
+        width: 4px;
+      }
+      .scrollbar-thin::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: #cfc4c5;
+        border-radius: 0px;
+      }
+      .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        background: #7e7576;
+      }
     </style>
-</head>
-<body class="bg-background text-on-background font-body-md selection:bg-secondary selection:text-white">
+  </head>
+  <body class="bg-background text-on-background font-body-md selection:bg-secondary selection:text-white">
     <!-- TopNavBar -->
-    <header id="main-header" class="w-full top-0 sticky bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline z-50">
-        <div class="flex justify-between items-center px-gutter py-4 max-w-[1200px] mx-auto">
-            <div class="max-w-[280px] cursor-pointer flex items-center">
-                <img src="/logo.png" alt="Caramide Logo" class="h-14 md:h-18 w-auto object-contain" />
-            </div>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">CARAMIDE</a>
-                <a class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">CARAMEDICAL</a>
-                <a class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#">CARAMIDE PRO</a>
-                <a class="font-label-caps text-label-caps uppercase text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary" href="#">PHILOSOPHY</a>
-            </nav>
-            <div class="flex items-center space-x-6">
-                <a href="https://github.com/moisesvalero/caramide-ai-assistant" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-secondary transition-colors duration-200 flex items-center justify-center cursor-pointer" aria-label="Repositorio de GitHub">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
-                    </svg>
-                </a>
-                <button class="cursor-pointer active:opacity-70" aria-label="Ver carrito de compras">
-                    <span class="material-symbols-outlined text-primary">shopping_bag</span>
-                </button>
-                <button class="cursor-pointer active:opacity-70" aria-label="Mi cuenta de usuario">
-                    <span class="material-symbols-outlined text-primary">person</span>
-                </button>
-                <button class="md:hidden cursor-pointer" aria-label="Abrir menú de navegación">
-                    <span class="material-symbols-outlined">menu</span>
-                </button>
-            </div>
+    <header
+      id="main-header"
+      class="w-full top-0 sticky bg-surface dark:bg-surface border-b border-outline-variant dark:border-outline z-50"
+    >
+      <div class="flex justify-between items-center px-gutter py-4 max-w-[1200px] mx-auto">
+        <div class="max-w-[280px] cursor-pointer flex items-center">
+          <img src="/logo.png" alt="Caramide Logo" class="h-14 md:h-18 w-auto object-contain" />
         </div>
+        <nav class="hidden md:flex items-center space-x-8">
+          <a
+            class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200"
+            href="#">CARAMIDE</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200"
+            href="#">CARAMEDICAL</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase text-primary dark:text-on-surface-variant hover:text-secondary transition-colors duration-200"
+            href="#">CARAMIDE PRO</a
+          >
+          <a
+            class="font-label-caps text-label-caps uppercase text-secondary dark:text-secondary-fixed-dim border-b-2 border-secondary"
+            href="#">PHILOSOPHY</a
+          >
+        </nav>
+        <div class="flex items-center space-x-6">
+          <a
+            href="https://github.com/moisesvalero/caramide-ai-assistant"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:text-secondary transition-colors duration-200 flex items-center justify-center cursor-pointer"
+            aria-label="Repositorio de GitHub"
+          >
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+              ></path>
+            </svg>
+          </a>
+          <button class="cursor-pointer active:opacity-70" aria-label="Ver carrito de compras">
+            <span class="material-symbols-outlined text-primary">shopping_bag</span>
+          </button>
+          <button class="cursor-pointer active:opacity-70" aria-label="Mi cuenta de usuario">
+            <span class="material-symbols-outlined text-primary">person</span>
+          </button>
+          <button class="md:hidden cursor-pointer" aria-label="Abrir menú de navegación">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </div>
     </header>
 
     <main>
-        <!-- Hero Section: AI Assistant -->
-        <section class="relative min-h-0 md:min-h-[819px] flex flex-col items-center justify-center pt-8 pb-12 md:py-24 px-gutter overflow-hidden hero-gradient">
-            <!-- Aurora Lights Background -->
-            <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                <div class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-secondary/5 blur-[120px] animate-aurora-1"></div>
-                <div class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-[130px] animate-aurora-2"></div>
-                <div class="absolute top-[30%] right-[10%] w-[40%] h-[40%] rounded-full bg-outline-variant/10 blur-[100px] animate-aurora-1"></div>
-            </div>
-            <div class="absolute inset-0 dot-pattern opacity-30 pointer-events-none z-0"></div>
-            <div class="relative z-10 max-w-[900px] w-full text-center flex flex-col items-center">
-                <span class="inline-block bg-secondary text-white px-3 py-1 font-label-caps text-label-caps mb-6 opacity-0 animate-fade-in-up">AI POWERED DERMATOLOGY</span>
-                <h1 class="font-display-lg text-[36px] leading-[44px] md:text-[68px] md:leading-[76px] lg:text-[76px] lg:leading-[84px] text-primary mb-6 opacity-0 animate-fade-in-up animation-delay-100 font-light tracking-tight text-wrap-balance">
-                    Tu experto en piel,<br class="hidden md:block"/> potenciado por <span class="font-bold text-secondary">IA</span>.
-                </h1>
-                <p class="font-body-md text-on-surface-variant md:text-lg mb-8 max-w-[650px] mx-auto opacity-0 animate-fade-in-up animation-delay-200">Cuéntale a nuestra IA qué necesita tu piel y descubre tu rutina personalizada de Caramide al instante.</p>
-                
-                <!-- Chat Window Container (Initially Hidden, expanded beautifully on first message) -->
-                <div id="chat-window" class="hidden w-full max-w-[750px] bg-white border border-primary text-left flex flex-col mb-4 transition-all duration-300">
-                    <div class="border-b border-outline-variant px-6 py-3 bg-surface-container-low flex justify-between items-center">
-                        <span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider flex items-center gap-2">
-                            <span class="w-2 h-2 bg-secondary animate-pulse inline-block"></span>
-                            Caramide AI Skincare Assistant
-                        </span>
-                        <button id="reset-chat" class="font-label-caps text-[10px] text-outline hover:text-secondary uppercase transition-colors flex items-center gap-1">
-                            <span class="material-symbols-outlined text-[14px]">refresh</span> Reiniciar
-                        </button>
-                    </div>
-                    <div id="chat-messages" class="max-h-[350px] overflow-y-auto px-6 py-4 flex flex-col gap-4 scrollbar-thin">
-                        <!-- Los mensajes de la conversación se cargarán aquí dinámicamente -->
-                    </div>
-                    
-                    <!-- Typying status -->
-                    <div id="chat-typing" class="hidden px-6 py-3 border-t border-outline-variant bg-surface-container-lowest flex gap-4 items-center animate-pulse">
-                        <span class="material-symbols-outlined text-outline animate-spin text-lg">autorenew</span>
-                        <span class="font-label-caps text-[11px] uppercase tracking-wider text-outline">Analizando tu perfil clínico...</span>
-                    </div>
-                </div>
+      <!-- Hero Section: AI Assistant -->
+      <section
+        class="relative min-h-0 md:min-h-[819px] flex flex-col items-center justify-center pt-8 pb-12 md:py-24 px-gutter overflow-hidden hero-gradient"
+      >
+        <!-- Aurora Lights Background -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
+          <div
+            class="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] rounded-full bg-secondary/5 blur-[120px] animate-aurora-1"
+          >
+          </div>
+          <div
+            class="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full bg-secondary/10 blur-[130px] animate-aurora-2"
+          >
+          </div>
+          <div
+            class="absolute top-[30%] right-[10%] w-[40%] h-[40%] rounded-full bg-outline-variant/10 blur-[100px] animate-aurora-1"
+          >
+          </div>
+        </div>
+        <div class="absolute inset-0 dot-pattern opacity-30 pointer-events-none z-0"></div>
+        <div class="relative z-10 max-w-[900px] w-full text-center flex flex-col items-center">
+          <span
+            class="inline-block bg-secondary text-white px-3 py-1 font-label-caps text-label-caps mb-6 opacity-0 animate-fade-in-up"
+            >AI POWERED DERMATOLOGY</span
+          >
+          <h1
+            class="font-display-lg text-[36px] leading-[44px] md:text-[68px] md:leading-[76px] lg:text-[76px] lg:leading-[84px] text-primary mb-6 opacity-0 animate-fade-in-up animation-delay-100 font-light tracking-tight text-wrap-balance"
+          >
+            Tu experto en piel,<br class="hidden md:block" /> potenciado por <span class="font-bold text-secondary"
+              >IA</span
+            >.
+          </h1>
+          <p
+            class="font-body-md text-on-surface-variant md:text-lg mb-8 max-w-[650px] mx-auto opacity-0 animate-fade-in-up animation-delay-200"
+          >
+            Cuéntale a nuestra IA qué necesita tu piel y descubre tu rutina personalizada de Caramide al instante.
+          </p>
 
-                <!-- AI Composer Box -->
-                <div class="w-full max-w-[750px] bg-white border border-outline-variant focus-within:border-primary p-1.5 md:p-2 group transition-all duration-300 opacity-0 animate-fade-in-up animation-delay-300">
-                    <div class="flex flex-row items-center justify-between gap-2">
-                        <div class="flex-1 px-2 py-1 flex items-center gap-3 min-w-0">
-                            <span class="material-symbols-outlined text-outline flex-shrink-0 text-[20px] md:text-[24px]">auto_awesome</span>
-                            <label for="chat-input" class="sr-only">Dime qué necesita tu piel</label>
-                            <input id="chat-input" class="w-full bg-transparent border-none focus:outline-none focus:ring-0 focus-visible:outline-none outline-none text-body-md font-body-md text-on-surface placeholder:text-outline/60 min-w-0" placeholder="Dime qué necesita tu piel (ej. 'tengo piel grasa')...." type="text"/>
-                        </div>
-                        <button id="chat-send" class="w-10 h-10 md:w-11 md:h-11 flex-shrink-0 bg-primary text-on-primary hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 flex items-center justify-center cursor-pointer" aria-label="Enviar consulta">
-                            <span class="material-symbols-outlined text-[18px] md:text-[20px]">send</span>
-                        </button>
-                    </div>
-                </div>
+          <!-- Chat Window Container (Initially Hidden, expanded beautifully on first message) -->
+          <div
+            id="chat-window"
+            class="hidden w-full max-w-[750px] bg-white border border-primary text-left flex flex-col mb-4 transition-all duration-300"
+          >
+            <div
+              class="border-b border-outline-variant px-6 py-3 bg-surface-container-low flex justify-between items-center"
+            >
+              <span
+                class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider flex items-center gap-2"
+              >
+                <span class="w-2 h-2 bg-secondary animate-pulse inline-block"></span>
+                Caramide AI Skincare Assistant
+              </span>
+              <button
+                id="reset-chat"
+                class="font-label-caps text-[10px] text-outline hover:text-secondary uppercase transition-colors flex items-center gap-1"
+              >
+                <span class="material-symbols-outlined text-[14px]">refresh</span> Reiniciar
+              </button>
+            </div>
+            <div id="chat-messages" class="max-h-[350px] overflow-y-auto px-6 py-4 flex flex-col gap-4 scrollbar-thin">
+              <!-- Los mensajes de la conversación se cargarán aquí dinámicamente -->
+            </div>
 
-                <!-- Prompt Examples -->
-                <div class="mt-8 flex flex-wrap justify-center gap-3 opacity-0 animate-fade-in-up animation-delay-300">
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Antiarrugas</button>
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Piel Grasa</button>
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Hidratación profunda</button>
-                    <button class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant">Manchas Solares</button>
-                </div>
+            <!-- Typying status -->
+            <div
+              id="chat-typing"
+              class="hidden px-6 py-3 border-t border-outline-variant bg-surface-container-lowest flex gap-4 items-center animate-pulse"
+            >
+              <span class="material-symbols-outlined text-outline animate-spin text-lg">autorenew</span>
+              <span class="font-label-caps text-[11px] uppercase tracking-wider text-outline"
+                >Analizando tu perfil clínico...</span
+              >
             </div>
-            <!-- Background Aesthetic Element -->
-            <div class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-64 opacity-10 pointer-events-none"></div>
-        </section>
+          </div>
 
-        <!-- Product Grid: Recommended Bestsellers -->
-        <section class="max-w-[1200px] mx-auto py-section-padding-desktop px-gutter">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <h2 class="font-headline-lg text-headline-lg uppercase tracking-tight text-primary">Nuestros Best-Sellers</h2>
-                    <p class="font-body-md text-on-surface-variant mt-2">Tecnología clínica aplicada para resultados visibles.</p>
-                </div>
-                <a class="font-label-caps text-label-caps border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-all" href="#">VER TODOS LOS PRODUCTOS</a>
+          <!-- AI Composer Box -->
+          <div
+            class="w-full max-w-[750px] bg-white border border-outline-variant focus-within:border-primary p-1.5 md:p-2 group transition-all duration-300 opacity-0 animate-fade-in-up animation-delay-300"
+          >
+            <div class="flex flex-row items-center justify-between gap-2">
+              <div class="flex-1 px-2 py-1 flex items-center gap-3 min-w-0">
+                <span class="material-symbols-outlined text-outline flex-shrink-0 text-[20px] md:text-[24px]"
+                  >auto_awesome</span
+                >
+                <label for="chat-input" class="sr-only">Dime qué necesita tu piel</label>
+                <input
+                  id="chat-input"
+                  class="w-full bg-transparent border-none focus:outline-none focus:ring-0 focus-visible:outline-none outline-none text-body-md font-body-md text-on-surface placeholder:text-outline/60 min-w-0"
+                  placeholder="Dime qué necesita tu piel (ej. 'tengo piel grasa')...."
+                  type="text"
+                />
+              </div>
+              <button
+                id="chat-send"
+                class="w-10 h-10 md:w-11 md:h-11 flex-shrink-0 bg-primary text-on-primary hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 flex items-center justify-center cursor-pointer"
+                aria-label="Enviar consulta"
+              >
+                <span class="material-symbols-outlined text-[18px] md:text-[20px]">send</span>
+              </button>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-                <!-- Product Card 1: Retibak -->
-                <div class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8">
-                    <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
-                        <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_QRL8RGYsno3OkOHSDcEk5ojnGh0HyEa5pU8Xbc_KCtSEDwW9dkHoFea5tiPqiUGtykZUf9kDK9kc0rDZunkCt-sHYoC2m6fcdRnG_INF01Db9Nb8e59tlcuK_eyGx8CpUAkrMsVMqI_MY2VmuVCZfnO4Z5OFA1wzYvVy-dOUea4jDx731MbSw602vBJ9RXTz7MkVhRbctPFrgm7eOj3y_wgRX1-xv4NC_zNU_Lca54xvrbUfLIomHslz87ids2l-9tHgGhTwcyGy" alt="Retibak"/>
-                        <span class="absolute top-4 left-4 bg-secondary text-white px-2 py-1 font-label-caps text-[10px]">EPIGENÉTICO</span>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">CARAMIDE</h3>
-                        <p class="font-headline-lg text-[20px] mb-2 leading-tight">Retibak – Sérum Epigenético 30ml</p>
-                        <p class="font-body-md font-bold mb-6">59.95€</p>
-                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">Añadir al Carrito</button>
-                    </div>
-                </div>
-                <!-- Product Card 2: Oxystem -->
-                <div class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8">
-                    <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
-                        <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1hy4jx4sGXwUleZ_kV0nStXwyhp6WKY_7yZzxcppbBFPaxsJhOwr17MOHFuqZ3J7UzjrMPY2Y27dsnYhyQXh4yw20k60wxoImiVRTuUBo4Uww6m0XBe8pq99ityeX4ZfurzHaJN-VnxQUy4jOh_ouWmyjMQcVsHAIoJJrax05dhal0-aQAXqLy0YjKTGKPqRHhL419BCMIUj58M2DoZaGhda_qF-omxcRpJmZsE0QHy562EuB8r026p2bAC7vZw2CSi-dji0DGl8a" alt="Oxystem"/>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">CARAMIDE</h3>
-                        <p class="font-headline-lg text-[20px] mb-2 leading-tight">Oxystem – Sérum Celular 30ml</p>
-                        <p class="font-body-md font-bold mb-6">34.94€</p>
-                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">Añadir al Carrito</button>
-                    </div>
-                </div>
-                <!-- Product Card 3: Mistify -->
-                <div class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8">
-                    <div class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center">
-                        <img class="max-w-[80%] transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZV5dhmiVikZP0F7_YLcHnNIq_vtxWD9HHjrWzDahKaSmJ5yv-dSKukkEEiQoq9rguvLXGQ1lE5mYRqigQg-fzCg4mNA74UzsVwX5igOvwpi3lkOZLYb3HD4JrKo7d7Gk6NU6C89PDfwrCYn3Bt1WoJp3GDiAYdPU0N1UCZ5CjUCStuNTIAX_cQ0y8RcJFnwqZ06m_kbTb1bnGCVRwbPkVWnBlpA1fSvgbWnb4vn7cpO2n2M47hBztD2AqRD__gny5jNGk4v65v0_R" alt="Mistify"/>
-                        <span class="absolute top-4 left-4 bg-primary text-white px-2 py-1 font-label-caps text-[10px]">NEW</span>
-                    </div>
-                    <div class="px-2">
-                        <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">CARAMIDE</h3>
-                        <p class="font-headline-lg text-[20px] mb-2 leading-tight">Mistify – Bruma Equilibrante 50ml</p>
-                        <p class="font-body-md font-bold mb-6">34.94€</p>
-                        <button class="w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 cursor-pointer">Añadir al Carrito</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+          </div>
 
-        <!-- Trust Signals / Features -->
-        <section class="bg-surface-container-low border-y border-outline-variant">
-            <div class="max-w-[1200px] mx-auto py-12 px-gutter grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="flex flex-col items-center text-center">
-                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">verified_user</span>
-                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Dermatológicamente Testado</h4>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">eco</span>
-                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Fórmula Vegana</h4>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">location_on</span>
-                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Hecho en España</h4>
-                </div>
-                <div class="flex flex-col items-center text-center">
-                    <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">local_shipping</span>
-                    <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Envío Express 24/72h</h4>
-                </div>
-            </div>
-        </section>
+          <!-- Prompt Examples -->
+          <div class="mt-8 flex flex-wrap justify-center gap-3 opacity-0 animate-fade-in-up animation-delay-300">
+            <button
+              class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant"
+              >Antiarrugas</button
+            >
+            <button
+              class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant"
+              >Piel Grasa</button
+            >
+            <button
+              class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant"
+              >Hidratación profunda</button
+            >
+            <button
+              class="prompt-chip px-4 py-2 border border-outline-variant hover:border-primary hover:scale-105 active:scale-95 transition-all duration-200 font-label-caps text-[10px] uppercase tracking-widest text-on-surface-variant"
+              >Manchas Solares</button
+            >
+          </div>
+        </div>
+        <!-- Background Aesthetic Element -->
+        <div
+          class="absolute -bottom-20 left-1/2 -translate-x-1/2 w-full max-w-[1200px] h-64 opacity-10 pointer-events-none"
+        >
+        </div>
+      </section>
 
-        <!-- Bento Grid: Science & Results -->
-        <section class="max-w-[1200px] mx-auto py-section-padding-desktop px-gutter">
-            <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[600px]">
-                <div class="md:col-span-7 bg-primary text-white p-12 flex flex-col justify-end relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-64 h-64 opacity-20 group-hover:opacity-40 transition-opacity"></div>
-                    <div class="relative z-10">
-                        <span class="font-label-caps text-label-caps text-outline-variant mb-4 block">LA CIENCIA</span>
-                        <h2 class="font-display-lg text-display-lg mb-6">Cosmética de Grado Farmacéutico.</h2>
-                        <p class="max-w-[450px] mb-8 font-body-md text-surface-container">Ingredientes de alta pureza formulados para penetrar en las capas más profundas de la dermis, logrando un cambio real desde el interior.</p>
-                        <button class="px-8 py-3 bg-white text-primary font-label-caps text-label-caps uppercase hover:bg-secondary hover:text-white transition-all">Nuestra Filosofía</button>
-                    </div>
-                </div>
-                <div class="md:col-span-5 grid grid-rows-2 gap-gutter">
-                    <div class="bg-surface-container border border-outline-variant p-8 flex items-center justify-between group">
-                        <div class="max-w-[200px]">
-                            <h4 class="font-headline-lg text-[24px] mb-2">Línea Pro</h4>
-                            <p class="font-body-md text-on-surface-variant text-[14px]">Resultados de clínica profesional en tu casa.</p>
-                        </div>
-                        <span class="material-symbols-outlined text-[48px] text-outline group-hover:text-primary transition-colors">science</span>
-                    </div>
-                    <div class="bg-cover bg-center border border-outline-variant" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhtYW9gycDxS4strc6EaFh6Q0Hp8XtMf5Fl8oHVTpqUVKhgkRWGjJDFk1zwID5JQaY_bC0umDHymrYU1H27gxRA-kveQJjnWRdZb6Ajrf8yqxnItjE0fRU1DJyjKNSXSXopBq1-PiEYHBTWhYUutYrgWgc8J36YxUuqz69-KX2F2nmQtbF3Ho_16JKwEigc1OHyrzXq9NVPfN0X1OZkiD9-W_W0QVMIxwkQX0tad5mzrl1OZ_5SDr8hc_C5HHIiFZ_tVWJgdIU8DQw')"></div>
-                </div>
+      <!-- Product Grid: Recommended Products (Otras Marcas) -->
+      <section class="max-w-[1200px] mx-auto py-section-padding-desktop px-gutter">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg uppercase tracking-tight text-primary">Productos Populares</h2>
+            <p class="font-body-md text-on-surface-variant mt-2">
+              Selección dermocosmética de marcas reconocidas, recomendada por nuestra IA.
+            </p>
+          </div>
+          <a
+            class="font-label-caps text-label-caps border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-all"
+            href="#">VER TODOS LOS PRODUCTOS</a
+          >
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <!-- Product Card 1: CeraVe Retinol Serum -->
+          <div
+            class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8"
+          >
+            <div
+              class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center"
+            >
+              <img
+                class="max-w-[80%] transition-transform duration-500 group-hover:scale-110"
+                src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=1000&fit=crop&q=80"
+                alt="CeraVe Retinol Serum"
+              />
+              <span class="absolute top-4 left-4 bg-secondary text-white px-2 py-1 font-label-caps text-[10px]"
+                >ANTIEDAD</span
+              >
             </div>
-        </section>
+            <div class="px-2">
+              <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">
+                CERAVE
+              </h3>
+              <p class="font-headline-lg text-[20px] mb-2 leading-tight">Retinol Serum – Sérum Antiedad 30ml</p>
+              <p class="font-body-md font-bold mb-6">28.95€</p>
+              <a
+                class="block text-center w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                href="https://www.amazon.es/s?k=CeraVe+Retinol+Serum"
+                target="_blank"
+                rel="noopener noreferrer">Ver en Amazon</a
+              >
+            </div>
+          </div>
+          <!-- Product Card 2: The Ordinary Hyaluronic Acid -->
+          <div
+            class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8"
+          >
+            <div
+              class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center"
+            >
+              <img
+                class="max-w-[80%] transition-transform duration-500 group-hover:scale-110"
+                src="https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=1000&fit=crop&q=80"
+                alt="The Ordinary Hyaluronic Acid 2% + B5"
+              />
+            </div>
+            <div class="px-2">
+              <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">
+                THE ORDINARY
+              </h3>
+              <p class="font-headline-lg text-[20px] mb-2 leading-tight">Hyaluronic Acid 2% + B5 – Hidratación 30ml</p>
+              <p class="font-body-md font-bold mb-6">9.50€</p>
+              <a
+                class="block text-center w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                href="https://www.amazon.es/s?k=The+Ordinary+Hyaluronic+Acid+2%25+B5"
+                target="_blank"
+                rel="noopener noreferrer">Ver en Amazon</a
+              >
+            </div>
+          </div>
+          <!-- Product Card 3: La Roche-Posay Serozinc -->
+          <div
+            class="group border-b border-transparent hover:border-primary hover:-translate-y-1 transition-all duration-300 pb-8"
+          >
+            <div
+              class="relative overflow-hidden mb-6 aspect-[4/5] bg-surface-container flex items-center justify-center"
+            >
+              <img
+                class="max-w-[80%] transition-transform duration-500 group-hover:scale-110"
+                src="https://images.unsplash.com/photo-1612817288484-6f916006741a?w=800&h=1000&fit=crop&q=80"
+                alt="La Roche-Posay Serozinc"
+              />
+              <span class="absolute top-4 left-4 bg-primary text-white px-2 py-1 font-label-caps text-[10px]"
+                >TOP VENTAS</span
+              >
+            </div>
+            <div class="px-2">
+              <h3 class="font-label-caps text-label-caps text-on-surface-variant mb-1 uppercase tracking-wider">
+                LA ROCHE-POSAY
+              </h3>
+              <p class="font-headline-lg text-[20px] mb-2 leading-tight">Serozinc – Solución Calmante 50ml</p>
+              <p class="font-body-md font-bold mb-6">11.90€</p>
+              <a
+                class="block text-center w-full py-3 border border-primary font-label-caps text-label-caps uppercase hover:bg-primary hover:text-white hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                href="https://www.amazon.es/s?k=La+Roche-Posay+Serozinc"
+                target="_blank"
+                rel="noopener noreferrer">Ver en Amazon</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trust Signals / Features -->
+      <section class="bg-surface-container-low border-y border-outline-variant">
+        <div class="max-w-[1200px] mx-auto py-12 px-gutter grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="flex flex-col items-center text-center">
+            <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">verified_user</span>
+            <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Dermatológicamente Testado</h4>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">eco</span>
+            <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Fórmula Vegana</h4>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">location_on</span>
+            <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Hecho en España</h4>
+          </div>
+          <div class="flex flex-col items-center text-center">
+            <span class="material-symbols-outlined text-[32px] mb-3 text-secondary">local_shipping</span>
+            <h4 class="font-label-caps text-[11px] uppercase tracking-widest">Envío Express 24/72h</h4>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bento Grid: Science & Results -->
+      <section class="max-w-[1200px] mx-auto py-section-padding-desktop px-gutter">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter h-auto md:h-[600px]">
+          <div
+            class="md:col-span-7 bg-primary text-white p-12 flex flex-col justify-end relative overflow-hidden group"
+          >
+            <div class="absolute top-0 right-0 w-64 h-64 opacity-20 group-hover:opacity-40 transition-opacity"></div>
+            <div class="relative z-10">
+              <span class="font-label-caps text-label-caps text-outline-variant mb-4 block">LA CIENCIA</span>
+              <h2 class="font-display-lg text-display-lg mb-6">Cosmética de Grado Farmacéutico.</h2>
+              <p class="max-w-[450px] mb-8 font-body-md text-surface-container">
+                Ingredientes de alta pureza formulados para penetrar en las capas más profundas de la dermis, logrando
+                un cambio real desde el interior.
+              </p>
+              <button
+                class="px-8 py-3 bg-white text-primary font-label-caps text-label-caps uppercase hover:bg-secondary hover:text-white transition-all"
+                >Nuestra Filosofía</button
+              >
+            </div>
+          </div>
+          <div class="md:col-span-5 grid grid-rows-2 gap-gutter">
+            <div class="bg-surface-container border border-outline-variant p-8 flex items-center justify-between group">
+              <div class="max-w-[200px]">
+                <h4 class="font-headline-lg text-[24px] mb-2">Línea Pro</h4>
+                <p class="font-body-md text-on-surface-variant text-[14px]">
+                  Resultados de clínica profesional en tu casa.
+                </p>
+              </div>
+              <span
+                class="material-symbols-outlined text-[48px] text-outline group-hover:text-primary transition-colors"
+                >science</span
+              >
+            </div>
+            <div
+              class="bg-cover bg-center border border-outline-variant"
+              style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhtYW9gycDxS4strc6EaFh6Q0Hp8XtMf5Fl8oHVTpqUVKhgkRWGjJDFk1zwID5JQaY_bC0umDHymrYU1H27gxRA-kveQJjnWRdZb6Ajrf8yqxnItjE0fRU1DJyjKNSXSXopBq1-PiEYHBTWhYUutYrgWgc8J36YxUuqz69-KX2F2nmQtbF3Ho_16JKwEigc1OHyrzXq9NVPfN0X1OZkiD9-W_W0QVMIxwkQX0tad5mzrl1OZ_5SDr8hc_C5HHIiFZ_tVWJgdIU8DQw')"
+            >
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <footer class="w-full mt-section-padding-desktop bg-tertiary dark:bg-tertiary-container border-t border-primary">
-        <div class="flex flex-col md:flex-row justify-between items-center px-gutter py-margin-safe max-w-[1200px] mx-auto text-on-tertiary">
-            <div class="mb-8 md:mb-0">
-                <div class="font-headline-lg text-headline-lg text-on-tertiary tracking-tighter mb-4">CARAMIDE SPAIN</div>
-                <p class="font-label-caps text-label-caps opacity-60">© 2026 CARAMIDE SPAIN. CLINICALLY PROVEN SKINCARE. DESARROLLADO POR <a href="https://moisesvalero.es" target="_blank" rel="noopener noreferrer" class="underline hover:text-secondary transition-colors">MOISES VALERO</a>.</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container" href="https://github.com/moisesvalero/caramide-ai-assistant" target="_blank" rel="noopener noreferrer">GITHUB REPO</a>
-                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container" href="#">PRIVACY POLICY</a>
-                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container" href="#">TERMS OF SERVICE</a>
-                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container" href="#">DERMATOLOGICAL TESTING</a>
-                <a class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container underline" href="#">CONTACT</a>
-            </div>
-            <div class="mt-8 md:mt-0 flex gap-4">
-                <span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" role="button" tabindex="0" aria-label="Idioma de la página">public</span>
-                <span class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors" role="button" tabindex="0" aria-label="Certificación de seguridad">shield</span>
-            </div>
+      <div
+        class="flex flex-col md:flex-row justify-between items-center px-gutter py-margin-safe max-w-[1200px] mx-auto text-on-tertiary"
+      >
+        <div class="mb-8 md:mb-0">
+          <div class="font-headline-lg text-headline-lg text-on-tertiary tracking-tighter mb-4">CARAMIDE SPAIN</div>
+          <p class="font-label-caps text-label-caps opacity-60">
+            © 2026 CARAMIDE SPAIN. CLINICALLY PROVEN SKINCARE. DESARROLLADO POR <a
+              href="https://moisesvalero.es"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline hover:text-secondary transition-colors">MOISES VALERO</a
+            >.
+          </p>
         </div>
-        <div class="bg-black py-4">
-            <div class="max-w-[1200px] mx-auto px-gutter text-center text-[10px] tracking-[0.2em] font-label-caps text-white/40">
-                NEXT GENERATION SKINCARE SERIES · MADRID · BARCELONA · LONDON
-            </div>
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+          <a
+            class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container"
+            href="https://github.com/moisesvalero/caramide-ai-assistant"
+            target="_blank"
+            rel="noopener noreferrer">GITHUB REPO</a
+          >
+          <a
+            class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container"
+            href="#">PRIVACY POLICY</a
+          >
+          <a
+            class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container"
+            href="#">TERMS OF SERVICE</a
+          >
+          <a
+            class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container"
+            href="#">DERMATOLOGICAL TESTING</a
+          >
+          <a
+            class="font-label-caps text-label-caps hover:text-secondary-fixed transition-all text-on-tertiary-container underline"
+            href="#">CONTACT</a
+          >
         </div>
+        <div class="mt-8 md:mt-0 flex gap-4">
+          <span
+            class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors"
+            role="button"
+            tabindex="0"
+            aria-label="Idioma de la página">public</span
+          >
+          <span
+            class="material-symbols-outlined cursor-pointer hover:text-secondary transition-colors"
+            role="button"
+            tabindex="0"
+            aria-label="Certificación de seguridad">shield</span
+          >
+        </div>
+      </div>
+      <div class="bg-black py-4">
+        <div
+          class="max-w-[1200px] mx-auto px-gutter text-center text-[10px] tracking-[0.2em] font-label-caps text-white/40"
+        >
+          NEXT GENERATION SKINCARE SERIES · MADRID · BARCELONA · LONDON
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Array to hold chat messages history
-        let chatMessages = [];
-        
-        const chatWindow = document.getElementById('chat-window');
-        const chatMessagesDiv = document.getElementById('chat-messages');
-        const chatInput = document.getElementById('chat-input');
-        const chatSend = document.getElementById('chat-send');
-        const chatTyping = document.getElementById('chat-typing');
-        const resetChatBtn = document.getElementById('reset-chat');
-        const promptChips = document.querySelectorAll('.prompt-chip');
+      // @ts-nocheck
+      // Array to hold chat messages history
+      let chatMessages = [];
 
-        // Event Listeners
-        // No ring focus styling applied, per clinical minimalist specs
+      const chatWindow = document.getElementById('chat-window');
+      const chatMessagesDiv = document.getElementById('chat-messages');
+      const chatInput = document.getElementById('chat-input');
+      const chatSend = document.getElementById('chat-send');
+      const chatTyping = document.getElementById('chat-typing');
+      const resetChatBtn = document.getElementById('reset-chat');
+      const promptChips = document.querySelectorAll('.prompt-chip');
 
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
+      // Event Listeners
+      // No ring focus styling applied, per clinical minimalist specs
+
+      chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          sendMessage();
+        }
+      });
+
+      chatInput.addEventListener('input', () => {
+        if (chatInput.value.trim().length > 0) {
+          chatSend.classList.remove('bg-primary');
+          chatSend.classList.add('bg-secondary');
+        } else {
+          chatSend.classList.remove('bg-secondary');
+          chatSend.classList.add('bg-primary');
+        }
+      });
+
+      chatSend.addEventListener('click', sendMessage);
+
+      resetChatBtn.addEventListener('click', resetChat);
+
+      promptChips.forEach((chip) => {
+        chip.addEventListener('click', () => {
+          const promptText = chip.textContent.trim();
+          let fullPrompt = '';
+          if (promptText === 'Piel Grasa') {
+            fullPrompt = 'Tengo la piel grasa y me salen brillos, ¿qué me recomiendas?';
+          } else if (promptText === 'Antiarrugas') {
+            fullPrompt = 'Busco un tratamiento antiarrugas potente, ¿qué tenéis?';
+          } else if (promptText === 'Hidratación profunda') {
+            fullPrompt = 'Tengo la piel deshidratada y tirante, ¿cómo la hidrato?';
+          } else if (promptText === 'Manchas Solares') {
+            fullPrompt = 'Me han salido manchas del sol en la cara, ¿cómo las reduzco?';
+          } else {
+            fullPrompt = promptText;
+          }
+
+          chatInput.value = fullPrompt;
+          sendMessage();
         });
+      });
 
-        chatInput.addEventListener('input', () => {
-            if (chatInput.value.trim().length > 0) {
-                chatSend.classList.remove('bg-primary');
-                chatSend.classList.add('bg-secondary');
-            } else {
-                chatSend.classList.remove('bg-secondary');
-                chatSend.classList.add('bg-primary');
-            }
-        });
+      // Functions
+      function formatReply(text) {
+        // Escape basic HTML
+        let escaped = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-        chatSend.addEventListener('click', sendMessage);
+        // Markdown Links: [text](url) -> <a href="$2" class="underline text-primary font-bold hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">$1</a>
+        escaped = escaped.replace(
+          /\[([^\]]+)\]\(([^)]+)\)/g,
+          '<a href="$2" class="underline text-primary font-bold hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">$1</a>',
+        );
 
-        resetChatBtn.addEventListener('click', resetChat);
+        // Bold markdown: **text** -> <strong>text</strong>
+        escaped = escaped.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
 
-        promptChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                const promptText = chip.textContent.trim();
-                let fullPrompt = "";
-                if (promptText === "Piel Grasa") {
-                    fullPrompt = "Tengo la piel grasa y me salen brillos, ¿qué me recomiendas?";
-                } else if (promptText === "Antiarrugas") {
-                    fullPrompt = "Busco un tratamiento antiarrugas potente, ¿qué tenéis?";
-                } else if (promptText === "Hidratación profunda") {
-                    fullPrompt = "Tengo la piel deshidratada y tirante, ¿cómo la hidrato?";
-                } else if (promptText === "Manchas Solares") {
-                    fullPrompt = "Me han salido manchas del sol en la cara, ¿cómo las reduzco?";
-                } else {
-                    fullPrompt = promptText;
-                }
-                
-                chatInput.value = fullPrompt;
-                sendMessage();
-            });
-        });
+        // List items: - item -> <li>item</li>
+        escaped = escaped.replace(/^\s*-\s*(.*?)$/gm, '• $1');
 
-        // Functions
-        function formatReply(text) {
-            // Escape basic HTML
-            let escaped = text
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;");
-            
-            // Markdown Links: [text](url) -> <a href="$2" class="underline text-primary font-bold hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">$1</a>
-            escaped = escaped.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="underline text-primary font-bold hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">$1</a>');
-            
-            // Bold markdown: **text** -> <strong>text</strong>
-            escaped = escaped.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
-            
-            // List items: - item -> <li>item</li>
-            escaped = escaped.replace(/^\s*-\s*(.*?)$/gm, "• $1");
-            
-            // Line breaks
-            escaped = escaped.replace(/\n/g, "<br>");
-            
-            return escaped;
+        // Line breaks
+        escaped = escaped.replace(/\n/g, '<br>');
+
+        return escaped;
+      }
+
+      function resetChat() {
+        chatMessages = [];
+        chatMessagesDiv.innerHTML = '';
+        chatWindow.classList.add('hidden');
+        chatInput.value = '';
+        chatSend.classList.remove('bg-secondary');
+        chatSend.classList.add('bg-primary');
+      }
+
+      async function sendMessage() {
+        if (chatSend.disabled) return;
+
+        const query = chatInput.value.trim();
+        if (!query) return;
+
+        // Clear input and reset button style
+        chatInput.value = '';
+        chatSend.classList.remove('bg-secondary');
+        chatSend.classList.add('bg-primary');
+
+        // Show chat window if hidden
+        if (chatWindow.classList.contains('hidden')) {
+          chatWindow.classList.remove('hidden');
+          chatWindow.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        function resetChat() {
-            chatMessages = [];
-            chatMessagesDiv.innerHTML = '';
-            chatWindow.classList.add('hidden');
-            chatInput.value = "";
-            chatSend.classList.remove('bg-secondary');
-            chatSend.classList.add('bg-primary');
+        // Append user message to UI
+        appendMessage('user', query);
+
+        // Save to messages history
+        chatMessages.push({ role: 'user', content: query });
+
+        // Show typing indicator
+        chatTyping.classList.remove('hidden');
+        chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+
+        // Change button state
+        chatSend.disabled = true;
+        chatSend.innerHTML = `<span class="material-symbols-outlined animate-spin">autorenew</span>`;
+
+        try {
+          const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ messages: chatMessages }),
+          });
+
+          const data = await response.json();
+
+          // Hide typing indicator
+          chatTyping.classList.add('hidden');
+
+          if (response.ok && data.reply) {
+            appendMessage('assistant', data.reply);
+            chatMessages.push({ role: 'assistant', content: data.reply });
+          } else {
+            const errMsg = data.error || 'Ocurrió un error al procesar tu solicitud.';
+            appendMessage('error', errMsg);
+          }
+        } catch (error) {
+          chatTyping.classList.add('hidden');
+          appendMessage('error', 'Error de conexión con el servidor. Por favor, inténtalo de nuevo.');
+          console.error('Chat error:', error);
+        } finally {
+          // Restore button state
+          chatSend.disabled = false;
+          chatSend.innerHTML = `<span class="material-symbols-outlined">send</span>`;
+          chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+        }
+      }
+
+      function typeWriter(element, text, speed = 65) {
+        // Render instantly if in an automated test environment (like Playwright)
+        if (window.navigator.webdriver) {
+          element.innerHTML = formatReply(text);
+          chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+          return;
         }
 
-        async function sendMessage() {
-            if (chatSend.disabled) return;
+        const words = text.split(' ');
+        let currentWordIndex = 0;
+        let currentText = '';
 
-            const query = chatInput.value.trim();
-            if (!query) return;
-
-            // Clear input and reset button style
-            chatInput.value = "";
-            chatSend.classList.remove('bg-secondary');
-            chatSend.classList.add('bg-primary');
-
-            // Show chat window if hidden
-            if (chatWindow.classList.contains('hidden')) {
-                chatWindow.classList.remove('hidden');
-                chatWindow.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }
-
-            // Append user message to UI
-            appendMessage('user', query);
-            
-            // Save to messages history
-            chatMessages.push({ role: 'user', content: query });
-
-            // Show typing indicator
-            chatTyping.classList.remove('hidden');
+        function write() {
+          if (currentWordIndex < words.length) {
+            currentText += (currentWordIndex === 0 ? '' : ' ') + words[currentWordIndex];
+            element.innerHTML = formatReply(currentText);
             chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
-
-            // Change button state
-            chatSend.disabled = true;
-            chatSend.innerHTML = `<span class="material-symbols-outlined animate-spin">autorenew</span>`;
-
-            try {
-                const response = await fetch('/api/chat', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ messages: chatMessages })
-                });
-
-                const data = await response.json();
-                
-                // Hide typing indicator
-                chatTyping.classList.add('hidden');
-
-                if (response.ok && data.reply) {
-                    appendMessage('assistant', data.reply);
-                    chatMessages.push({ role: 'assistant', content: data.reply });
-                } else {
-                    const errMsg = data.error || 'Ocurrió un error al procesar tu solicitud.';
-                    appendMessage('error', errMsg);
-                }
-            } catch (error) {
-                chatTyping.classList.add('hidden');
-                appendMessage('error', 'Error de conexión con el servidor. Por favor, inténtalo de nuevo.');
-                console.error('Chat error:', error);
-            } finally {
-                // Restore button state
-                chatSend.disabled = false;
-                chatSend.innerHTML = `<span class="material-symbols-outlined">send</span>`;
-                chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
-            }
+            currentWordIndex++;
+            setTimeout(write, speed);
+          }
         }
+        write();
+      }
 
-        function typeWriter(element, text, speed = 65) {
-            // Render instantly if in an automated test environment (like Playwright)
-            if (window.navigator.webdriver) {
-                element.innerHTML = formatReply(text);
-                chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
-                return;
-            }
+      function appendMessage(sender, text) {
+        const messageDiv = document.createElement('div');
 
-            const words = text.split(" ");
-            let currentWordIndex = 0;
-            let currentText = "";
-
-            function write() {
-                if (currentWordIndex < words.length) {
-                    currentText += (currentWordIndex === 0 ? "" : " ") + words[currentWordIndex];
-                    element.innerHTML = formatReply(currentText);
-                    chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
-                    currentWordIndex++;
-                    setTimeout(write, speed);
-                }
-            }
-            write();
-        }
-
-        function appendMessage(sender, text) {
-            const messageDiv = document.createElement('div');
-
-            if (sender === 'user') {
-                messageDiv.className = 'flex gap-4 items-start animate-slide-in-left';
-                messageDiv.innerHTML = `
+        if (sender === 'user') {
+          messageDiv.className = 'flex gap-4 items-start animate-slide-in-left';
+          messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-primary bg-surface-container-low border border-outline-variant p-2 text-lg">person</span>
                     <div class="flex-1 bg-surface-container-low border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
                         <strong>Tú:</strong><br>
                         ${text}
                     </div>
                 `;
-            } else if (sender === 'assistant') {
-                const uniqueId = `typing-${Date.now()}`;
-                messageDiv.className = 'flex gap-4 items-start animate-slide-in-right';
-                messageDiv.innerHTML = `
+        } else if (sender === 'assistant') {
+          const uniqueId = `typing-${Date.now()}`;
+          messageDiv.className = 'flex gap-4 items-start animate-slide-in-right';
+          messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-secondary bg-surface-container-low border border-outline-variant p-2 text-lg">auto_awesome</span>
                     <div class="flex-1 bg-surface-container-lowest border border-outline-variant p-4 text-on-surface text-[15px] leading-relaxed">
                         <strong>Caramide AI Assistant:</strong><br>
                         <div class="mt-2" id="${uniqueId}"></div>
                     </div>
                 `;
-                chatMessagesDiv.appendChild(messageDiv);
-                chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+          chatMessagesDiv.appendChild(messageDiv);
+          chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
 
-                const contentDiv = document.getElementById(uniqueId);
-                typeWriter(contentDiv, text, 65);
-                return;
-            } else if (sender === 'error') {
-                messageDiv.className = 'flex gap-4 items-start animate-fade-in';
-                messageDiv.innerHTML = `
+          const contentDiv = document.getElementById(uniqueId);
+          typeWriter(contentDiv, text, 65);
+          return;
+        } else if (sender === 'error') {
+          messageDiv.className = 'flex gap-4 items-start animate-fade-in';
+          messageDiv.innerHTML = `
                     <span class="material-symbols-outlined text-error bg-error-container p-2 text-lg">warning</span>
                     <div class="flex-1 bg-error-container border border-error p-4 text-error text-[15px] leading-relaxed">
                         <strong>Sistema:</strong><br>
                         ${text}
                     </div>
                 `;
-            }
-
-            chatMessagesDiv.appendChild(messageDiv);
-            chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
         }
+
+        chatMessagesDiv.appendChild(messageDiv);
+        chatMessagesDiv.scrollTop = chatMessagesDiv.scrollHeight;
+      }
     </script>
-</body>
+  </body>
 </html>

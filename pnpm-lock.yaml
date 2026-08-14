@@ -22,8 +22,8 @@ importers:
         specifier: ^7.2.1
         version: 7.2.1(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0)
       openai:
-        specifier: ^6.49.0
-        version: 6.49.0(zod@4.4.3)
+        specifier: ^7.4.0
+        version: 7.4.0(zod@4.4.3)
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
@@ -2219,8 +2219,9 @@ packages:
   oniguruma-to-es@4.3.6:
     resolution: {integrity: sha512-csuQ9x3Yr0cEIs/Zgx/OEt9iBw9vqIunAPQkx19R/fiMq2oGVTgcMqO/V3Ybqefr1TBvosI6jU539ksaBULJyA==}
 
-  openai@6.49.0:
-    resolution: {integrity: sha512-aYCc0C6L864eR6WSYIwQGyXriw/nIyZx0ObvhzOEVuk0zoBDpynjSbrionWI7q65B5H8jJX0DXR9snEzM6bfPg==}
+  openai@7.4.0:
+    resolution: {integrity: sha512-+C9Muit5x8j9R8ej8ZzVgKcrVDtqFqTy9gxFdov0EItLgU68zrJtF9ZeT0cyqJQW9S3PCJkdFgADtRGquRBtew==}
+    engines: {node: '>=22.0.0'}
     peerDependencies:
       '@aws-sdk/credential-provider-node': '>=3.972.0 <4'
       '@smithy/hash-node': '>=4.3.0 <5'
@@ -4718,7 +4719,7 @@ snapshots:
       regex: 6.1.0
       regex-recursion: 6.0.2
 
-  openai@6.49.0(zod@4.4.3):
+  openai@7.4.0(zod@4.4.3):
     optionalDependencies:
       zod: 4.4.3
 

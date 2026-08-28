@@ -14,13 +14,13 @@ importers:
     dependencies:
       '@astrojs/vercel':
         specifier: ^11.0.6
-        version: 11.0.6(astro@7.2.3(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0))(rollup@4.62.2)
+        version: 11.0.6(astro@7.2.3(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.3.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0))(rollup@4.62.2)(supports-color@7.2.0)
       '@tailwindcss/vite':
         specifier: ^4.3.3
-        version: 4.3.3(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
+        version: 4.3.3(vite@8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
       astro:
         specifier: ^7.2.3
-        version: 7.2.3(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0)
+        version: 7.2.3(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.3.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0)
       openai:
         specifier: ^6.49.0
         version: 6.49.0(zod@4.4.3)
@@ -35,8 +35,8 @@ importers:
         specifier: ^1.62.1
         version: 1.62.1
       '@types/node':
-        specifier: ^26.2.0
-        version: 26.2.0
+        specifier: ^26.3.0
+        version: 26.3.0
       husky:
         specifier: ^9.1.7
         version: 9.1.7
@@ -271,9 +271,6 @@ packages:
   '@emnapi/core@1.11.2':
     resolution: {integrity: sha512-TC8MkTuZUtcTSiFeuC0ksCh9QIJ5+F21MvZ4Wn4ORfYaFJ/0dsiudv5tVkejgwZlwQ39jL9WWDe2lz8x0WglOA==}
 
-  '@emnapi/core@2.0.0-alpha.3':
-    resolution: {integrity: sha512-AZypUeJ/yByuxyS7BlSNRDOMLMlROYtjYdIAuBmJssVz1UJDSeYxLrdizhXCFYhedC5bqd/ASy8EuNXbVVXp9g==}
-
   '@emnapi/runtime@1.11.1':
     resolution: {integrity: sha512-vgj7R3y3Wgx24IQaGPA/R6YFXLHVMOZ0uVEyIQPaWs+rd1AzfEMXlAC22FYwO1XkKR6NPsq7mUandH8oIRdZFw==}
 
@@ -283,14 +280,8 @@ packages:
   '@emnapi/runtime@1.11.3':
     resolution: {integrity: sha512-Xz4Tpyki7XyrpbUK1jR1AhdAdaXyhhY4lZ3neLodmhpuWfy2PAQN5B46sAiU4liOXGLkHypn/qU+jvfWSCYYLA==}
 
-  '@emnapi/runtime@2.0.0-alpha.3':
-    resolution: {integrity: sha512-hFPAhMUjJD9BSyCANEISPOogeXC9Zo9ZQl7L6vKnaVsMkCtzznaW/naYypeyl0Gv5rYfWYsZbpixTMpjDJzQeA==}
-
   '@emnapi/wasi-threads@1.2.2':
     resolution: {integrity: sha512-c95qOXkHdydNKhscBTebqEC1CVAZpyqOfVfBzQ1qgzyl3gfeldUjIggDbIZgDKsHLgnsM+igH7TJ/eAasaVuMA==}
-
-  '@emnapi/wasi-threads@2.0.1':
-    resolution: {integrity: sha512-9DsSk+o5NBX0CCJT8s0EROGSGxjR/tKu6aBTaVyq+SjAEQH4XcdcRxPBRzsBLizTTJ49MJjF+jgu3qnO9GLQcQ==}
 
   '@esbuild/aix-ppc64@0.28.2':
     resolution: {integrity: sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==}
@@ -1386,8 +1377,8 @@ packages:
   '@types/nlcst@2.0.3':
     resolution: {integrity: sha512-vSYNSDe6Ix3q+6Z7ri9lyWqgGhJTmzRjZRqyq15N0Z/1/UnVsno9G/N40NBijoYx2seFDIl0+B2mgAb9mezUCA==}
 
-  '@types/node@26.2.0':
-    resolution: {integrity: sha512-5IviulTZeRNp2vAJ514cc/HUlY5nZ9fCbq9DMyC52BrhFZACo3nI0R7qBxhQmo/d27NFe96ur/b7Wwxklda+kg==}
+  '@types/node@26.3.0':
+    resolution: {integrity: sha512-L3fgrnchriRC2ExBflb8j4uZZURHZfQsmQeyVzhjcHW4kkwVyo8/0h1B2MVzMTrYUJYu6G7EWs14hW/L9putqw==}
 
   '@types/unist@3.0.3':
     resolution: {integrity: sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q==}
@@ -2937,9 +2928,9 @@ snapshots:
   '@astrojs/compiler-binding-linux-x64-musl@0.3.2':
     optional: true
 
-  '@astrojs/compiler-binding-wasm32-wasi@0.3.2(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)':
+  '@astrojs/compiler-binding-wasm32-wasi@0.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)':
     dependencies:
-      '@napi-rs/wasm-runtime': 1.2.3(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)
+      '@napi-rs/wasm-runtime': 1.2.3(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -2951,7 +2942,7 @@ snapshots:
   '@astrojs/compiler-binding-win32-x64-msvc@0.3.2':
     optional: true
 
-  '@astrojs/compiler-binding@0.3.2(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)':
+  '@astrojs/compiler-binding@0.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)':
     optionalDependencies:
       '@astrojs/compiler-binding-darwin-arm64': 0.3.2
       '@astrojs/compiler-binding-darwin-x64': 0.3.2
@@ -2959,16 +2950,16 @@ snapshots:
       '@astrojs/compiler-binding-linux-arm64-musl': 0.3.2
       '@astrojs/compiler-binding-linux-x64-gnu': 0.3.2
       '@astrojs/compiler-binding-linux-x64-musl': 0.3.2
-      '@astrojs/compiler-binding-wasm32-wasi': 0.3.2(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)
+      '@astrojs/compiler-binding-wasm32-wasi': 0.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)
       '@astrojs/compiler-binding-win32-arm64-msvc': 0.3.2
       '@astrojs/compiler-binding-win32-x64-msvc': 0.3.2
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
 
-  '@astrojs/compiler-rs@0.3.2(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)':
+  '@astrojs/compiler-rs@0.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)':
     dependencies:
-      '@astrojs/compiler-binding': 0.3.2(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)
+      '@astrojs/compiler-binding': 0.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -3031,14 +3022,14 @@ snapshots:
       is-docker: 4.0.0
       package-manager-detector: 1.8.0
 
-  '@astrojs/vercel@11.0.6(astro@7.2.3(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0))(rollup@4.62.2)':
+  '@astrojs/vercel@11.0.6(astro@7.2.3(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.3.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0))(rollup@4.62.2)(supports-color@7.2.0)':
     dependencies:
       '@astrojs/internal-helpers': 0.10.3
       '@vercel/analytics': 1.6.1
       '@vercel/functions': 3.9.3
-      '@vercel/nft': 1.11.0(rollup@4.62.2)
+      '@vercel/nft': 1.11.0(rollup@4.62.2)(supports-color@7.2.0)
       '@vercel/routing-utils': 5.3.3
-      astro: 7.2.3(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0)
+      astro: 7.2.3(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.3.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0)
       esbuild: 0.28.2
       tinyglobby: 0.2.17
     transitivePeerDependencies:
@@ -3154,12 +3145,6 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@emnapi/core@2.0.0-alpha.3':
-    dependencies:
-      '@emnapi/wasi-threads': 2.0.1
-      tslib: 2.8.1
-    optional: true
-
   '@emnapi/runtime@1.11.1':
     dependencies:
       tslib: 2.8.1
@@ -3175,17 +3160,7 @@ snapshots:
       tslib: 2.8.1
     optional: true
 
-  '@emnapi/runtime@2.0.0-alpha.3':
-    dependencies:
-      tslib: 2.8.1
-    optional: true
-
   '@emnapi/wasi-threads@1.2.2':
-    dependencies:
-      tslib: 2.8.1
-    optional: true
-
-  '@emnapi/wasi-threads@2.0.1':
     dependencies:
       tslib: 2.8.1
     optional: true
@@ -3398,11 +3373,11 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mapbox/node-pre-gyp@2.0.3':
+  '@mapbox/node-pre-gyp@2.0.3(supports-color@7.2.0)':
     dependencies:
       consola: 3.4.2
       detect-libc: 2.1.2
-      https-proxy-agent: 7.0.6
+      https-proxy-agent: 7.0.6(supports-color@7.2.0)
       node-fetch: 2.7.0
       nopt: 8.1.0
       semver: 7.8.5
@@ -3425,10 +3400,10 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
-  '@napi-rs/wasm-runtime@1.2.3(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)':
+  '@napi-rs/wasm-runtime@1.2.3(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)':
     dependencies:
-      '@emnapi/core': 2.0.0-alpha.3
-      '@emnapi/runtime': 2.0.0-alpha.3
+      '@emnapi/core': 1.11.2
+      '@emnapi/runtime': 1.11.3
       '@tybys/wasm-util': 0.10.3
     optional: true
 
@@ -3845,12 +3820,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.3.3
       '@tailwindcss/oxide-win32-x64-msvc': 4.3.3
 
-  '@tailwindcss/vite@4.3.3(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))':
+  '@tailwindcss/vite@4.3.3(vite@8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))':
     dependencies:
       '@tailwindcss/node': 4.3.3
       '@tailwindcss/oxide': 4.3.3
       tailwindcss: 4.3.3
-      vite: 8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
+      vite: 8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
 
   '@tybys/wasm-util@0.10.3':
     dependencies:
@@ -3875,7 +3850,7 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.3
 
-  '@types/node@26.2.0':
+  '@types/node@26.3.0':
     dependencies:
       undici-types: 8.3.0
 
@@ -3898,9 +3873,9 @@ snapshots:
     dependencies:
       '@vercel/oidc': 3.8.4
 
-  '@vercel/nft@1.11.0(rollup@4.62.2)':
+  '@vercel/nft@1.11.0(rollup@4.62.2)(supports-color@7.2.0)':
     dependencies:
-      '@mapbox/node-pre-gyp': 2.0.3
+      '@mapbox/node-pre-gyp': 2.0.3(supports-color@7.2.0)
       '@rollup/pluginutils': 5.4.0(rollup@4.62.2)
       acorn: 8.18.0
       acorn-import-attributes: 1.9.5(acorn@8.18.0)
@@ -4034,9 +4009,9 @@ snapshots:
 
   aria-query@5.3.2: {}
 
-  astro@7.2.3(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)(@types/node@26.2.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0):
+  astro@7.2.3(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.3.0)(@vercel/functions@3.9.3)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
-      '@astrojs/compiler-rs': 0.3.2(@emnapi/core@2.0.0-alpha.3)(@emnapi/runtime@2.0.0-alpha.3)
+      '@astrojs/compiler-rs': 0.3.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)
       '@astrojs/internal-helpers': 0.10.3
       '@astrojs/markdown-satteri': 0.3.6
       '@astrojs/telemetry': 3.3.3
@@ -4084,13 +4059,13 @@ snapshots:
       ultrahtml: 1.7.0
       unifont: 0.7.5
       unstorage: 1.17.5(@vercel/functions@3.9.3)
-      vite: 8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
-      vitefu: 1.1.3(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
+      vite: 8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
+      vitefu: 1.1.3(vite@8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0))
       xxhash-wasm: 1.1.0
       yargs-parser: 22.0.0
       zod: 4.4.3
     optionalDependencies:
-      sharp: 0.35.3(@types/node@26.2.0)
+      sharp: 0.35.3(@types/node@26.3.0)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -4228,9 +4203,11 @@ snapshots:
     dependencies:
       css-tree: 2.2.1
 
-  debug@4.4.3:
+  debug@4.4.3(supports-color@7.2.0):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 7.2.0
 
   defu@6.1.7: {}
 
@@ -4482,10 +4459,10 @@ snapshots:
 
   http-cache-semantics@4.2.0: {}
 
-  https-proxy-agent@7.0.6:
+  https-proxy-agent@7.0.6(supports-color@7.2.0):
     dependencies:
       agent-base: 7.1.4
-      debug: 4.4.3
+      debug: 4.4.3(supports-color@7.2.0)
     transitivePeerDependencies:
       - supports-color
 
@@ -5021,7 +4998,7 @@ snapshots:
 
   semver@7.8.5: {}
 
-  sharp@0.35.3(@types/node@26.2.0):
+  sharp@0.35.3(@types/node@26.3.0):
     dependencies:
       '@img/colour': 1.1.0
       detect-libc: 2.1.2
@@ -5052,7 +5029,7 @@ snapshots:
       '@img/sharp-win32-arm64': 0.35.3
       '@img/sharp-win32-ia32': 0.35.3
       '@img/sharp-win32-x64': 0.35.3
-      '@types/node': 26.2.0
+      '@types/node': 26.3.0
     optional: true
 
   shebang-command@2.0.0:
@@ -5250,7 +5227,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.3
 
-  vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0):
+  vite@8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.33.0
       picomatch: 4.0.5
@@ -5258,15 +5235,15 @@ snapshots:
       rolldown: 1.2.4
       tinyglobby: 0.2.17
     optionalDependencies:
-      '@types/node': 26.2.0
+      '@types/node': 26.3.0
       esbuild: 0.28.2
       fsevents: 2.3.3
       jiti: 2.7.0
       yaml: 2.9.0
 
-  vitefu@1.1.3(vite@8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)):
+  vitefu@1.1.3(vite@8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)):
     optionalDependencies:
-      vite: 8.2.1(@types/node@26.2.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
+      vite: 8.2.1(@types/node@26.3.0)(esbuild@0.28.2)(jiti@2.7.0)(yaml@2.9.0)
 
   volar-service-css@0.0.71(@volar/language-service@2.4.28):
     dependencies:

@@ -27,7 +27,7 @@
   "dependencies": {
     "@astrojs/vercel": "^11.0.9",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.2.3",
+    "astro": "^7.2.10",
     "openai": "^6.49.0",
     "tailwindcss": "^4.3.3"
   },

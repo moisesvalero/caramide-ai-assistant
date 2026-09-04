@@ -22,8 +22,8 @@ importers:
         specifier: ^7.2.10
         version: 7.2.10(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.3)(@types/node@26.4.0)(@vercel/functions@3.9.5)(jiti@2.7.0)(yaml@2.9.0)
       openai:
-        specifier: ^6.49.0
-        version: 6.49.0(zod@4.5.4)
+        specifier: ^7.8.0
+        version: 7.8.0(undici@8.10.2)(zod@4.5.4)
       tailwindcss:
         specifier: ^4.3.3
         version: 4.3.3
@@ -2203,13 +2203,15 @@ packages:
   oniguruma-to-es@4.3.6:
     resolution: {integrity: sha512-csuQ9x3Yr0cEIs/Zgx/OEt9iBw9vqIunAPQkx19R/fiMq2oGVTgcMqO/V3Ybqefr1TBvosI6jU539ksaBULJyA==}
 
-  openai@6.49.0:
-    resolution: {integrity: sha512-aYCc0C6L864eR6WSYIwQGyXriw/nIyZx0ObvhzOEVuk0zoBDpynjSbrionWI7q65B5H8jJX0DXR9snEzM6bfPg==}
+  openai@7.8.0:
+    resolution: {integrity: sha512-/2g9JzdnXNcjX1W/UlSNu+OdSFDAaAVt0n9Onom0kPenH54o59G2WrX/xjTnr26UHNSh6hxcAf58doGYRme2rw==}
+    engines: {node: '>=22.0.0'}
     peerDependencies:
       '@aws-sdk/credential-provider-node': '>=3.972.0 <4'
       '@smithy/hash-node': '>=4.3.0 <5'
       '@smithy/signature-v4': '>=5.4.0 <6'
-      ws: ^8.18.0
+      undici: '>=5 <9'
+      ws: ^8.21.0
       zod: ^3.25 || ^4.0
     peerDependenciesMeta:
       '@aws-sdk/credential-provider-node':
@@ -2217,6 +2219,8 @@ packages:
       '@smithy/hash-node':
         optional: true
       '@smithy/signature-v4':
+        optional: true
+      undici:
         optional: true
       ws:
         optional: true
@@ -4651,8 +4655,9 @@ snapshots:
       regex: 6.1.0
       regex-recursion: 6.0.2
 
-  openai@6.49.0(zod@4.5.4):
+  openai@7.8.0(undici@8.10.2)(zod@4.5.4):
     optionalDependencies:
+      undici: 8.10.2
       zod: 4.5.4
 
   os-paths@4.4.0: {}

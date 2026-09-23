@@ -31,9 +31,8 @@ Para lograr tiempos de carga instantáneos en móviles y escritorio, y un SEO ex
 
 - **Astro v7:** El framework más rápido para crear webs orientadas al rendimiento y contenido.
 - **Tailwind CSS v4:** Motor de estilos ultraoptimizado utilizando variables CSS nativas.
-- **OpenRouter (primario):** Enrutador gratuito de LLMs con `openrouter/free` como modelo por defecto, intercambiable vía variable de entorno.
-- **Google Gemini 2.5 Flash (fallback):** Se activa automáticamente si el proveedor primario falla, garantizando disponibilidad continua.
-- **Vercel Serverless:** Desplegado de forma global en la red perimetral de Vercel.
+- **Google Gemini (Google AI Studio):** Modelo `gemini-3.5-flash-lite` por defecto (Free Tier), con baja latencia y alta velocidad en diagnósticos dermatológicos, configurable vía variable de entorno (compatible también con `gemini-3.8-flash`).
+- **Vercel Serverless:** Desplegado de forma global en la red perimetral de Vercel con ejecución optimizada (60s).
 - **Playwright:** Suite completa de pruebas automatizadas y responsive (Chrome, Safari, Firefox) para asegurar un funcionamiento al 100% libre de bugs.
 
 ---
@@ -63,12 +62,10 @@ El proyecto está completamente funcional y desplegado en producción en el sigu
     ```bash
     cp .env.example .env
     ```
-    Introduce tus API keys en el `.env` (proveedor primario + fallback):
+    Introduce tu API key de Gemini en el `.env`:
     ```env
-    OPENROUTER_API_KEY=tu_clave_openrouter
-    OPENROUTER_MODEL=openrouter/free
     GEMINI_API_KEY=tu_clave_gemini
-    GEMINI_MODEL=gemini-2.5-flash
+    GEMINI_MODEL=gemini-3.5-flash-lite
     ```
 4.  **Iniciar modo desarrollo:**
     ```bash

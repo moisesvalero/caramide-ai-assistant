@@ -98,7 +98,9 @@ test.describe('Caramide AI Skincare Assistant - E2E Tests', () => {
       /cerave|the ordinary|la roche|vichy|bioderma|eucerin|neutrogena|av[eè]ne/,
     );
     // Debe incluir los enlaces externos
-    expect(chatMessagesText.toLowerCase()).toMatch(/amazon\.es|google\.com\/search/);
+    const chatMessagesHtml = await page.locator('#chat-messages').innerHTML();
+    expect(chatMessagesHtml.toLowerCase()).toMatch(/amazon\.es/);
+    expect(chatMessagesHtml.toLowerCase()).toMatch(/google\.com\/search/);
     // No debe recomendar productos Caramide/Laramide
     expect(chatMessagesText.toLowerCase()).not.toMatch(
       /retibak|oxystem|mistify|tinellin|comedopeel|pureglycopeel|vitaminic|maxinadin|dna repair/,

@@ -1,5 +1,4 @@
 import type { APIRoute } from 'astro';
-import OpenAI from 'openai';
 
 type ChatRole = 'user' | 'assistant' | 'system';
 
@@ -23,31 +22,10 @@ Reglas estrictas:
    - Rutina de mañana y de noche con los productos y sus enlaces.
    - Un consejo final breve (SPF diario, orden de aplicación, etc.).`;
 
-function readEnv(name: string, fallback = ''): string {
-  return process.env[name] || import.meta.env[name] || fallback;
-}
-
-async function callOpenRouter(apiKey: string, model: string, messages: ChatMessage[]): Promise<string> {
-  const openai = new OpenAI({
-    apiKey,
-    baseURL: 'https://openrouter.ai/api/v1',
-    defaultHeaders: {
-      'HTTP-Referer': 'https://caramide-ai-assistant.vercel.app',
-      'X-OpenRouter-Title': 'Caramide AI Skincare Assistant',
-    },
-  });
-
-  const response = await openai.chat.completions.create({
-    model,
-    messages: [{ role: 'system', content: SYSTEM_PROMPT }, ...messages],
-    temperature: 0.7,
-  });
-
-  const content = response.choices[0]?.message?.content;
-  if (!content) {
-    throw new Error('OpenRouter devolvió una respuesta vacía');
-  }
-  return content;
+function getGeminiConfig() {
+  const apiKey = process.env.GEMINI_API_KEY || import.meta.env.GEMINI_API_KEY || '';
+  const model = process.env.GEMINI_MODEL || import.meta.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+  return { apiKey, model };
 }
 
 async function callGemini(apiKey: string, model: string, messages: ChatMessage[]): Promise<string> {
@@ -110,41 +88,20 @@ export const POST: APIRoute = async ({ request }) => {
       )
       .map((m) => ({ role: m.role, content: m.content }));
 
-    const openRouterKey = readEnv('OPENROUTER_API_KEY');
-    const openRouterModel = readEnv('OPENROUTER_MODEL', 'openrouter/free');
-    const geminiKey = readEnv('GEMINI_API_KEY');
-    const geminiModel = readEnv('GEMINI_MODEL', 'gemini-2.5-flash');
+    const { apiKey, model } = getGeminiConfig();
 
-    if (!openRouterKey && !geminiKey) {
+    if (!apiKey) {
       return new Response(
         JSON.stringify({
-          error:
-            'No hay claves de IA configuradas en el servidor. Define OPENROUTER_API_KEY y/o GEMINI_API_KEY en el archivo .env.',
+          error: 'No hay clave de Google Gemini configurada en el servidor. Define GEMINI_API_KEY en el archivo .env.',
         }),
         { status: 500, headers: { 'Content-Type': 'application/json' } },
       );
     }
 
-    let reply = '';
-    let provider = 'openrouter';
-    let usedFallback = false;
+    const reply = await callGemini(apiKey, model, sanitized);
 
-    if (openRouterKey) {
-      try {
-        reply = await callOpenRouter(openRouterKey, openRouterModel, sanitized);
-      } catch (error) {
-        console.error('OpenRouter falló, usando Gemini como fallback:', error);
-        if (!geminiKey) throw error;
-        reply = await callGemini(geminiKey, geminiModel, sanitized);
-        provider = 'gemini';
-        usedFallback = true;
-      }
-    } else {
-      reply = await callGemini(geminiKey, geminiModel, sanitized);
-      provider = 'gemini';
-    }
-
-    return new Response(JSON.stringify({ reply, provider, fallback: usedFallback }), {
+    return new Response(JSON.stringify({ reply, provider: 'gemini', model }), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });
@@ -153,7 +110,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(
       JSON.stringify({
         error:
-          'Lo sentimos, ha ocurrido un error al conectar con el servicio de análisis. Por favor, inténtalo de nuevo.',
+          'Lo sentimos, ha ocurrido un error al conectar con el servicio de análisis dermatológico. Por favor, inténtalo de nuevo.',
       }),
       { status: 500, headers: { 'Content-Type': 'application/json' } },
     );
